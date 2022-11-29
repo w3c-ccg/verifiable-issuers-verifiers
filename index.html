@@ -138,6 +138,45 @@ not fit for production deployment.
     <section>
       <h2>Introduction</h2>
 
+      <p>
+The maintenance of lists of Verifiable Issuers, sometimes referred to as Trusted Registries, are a well-known concept from the pre-internet age. Whenever there is a diploma signed by a university, there are people and organizations that keep track of what universities exist and what methods there are to confirm the authenticity of that diploma. A list could be maintained by HR staff for the purpose of hiring personnel based on qualifications asserted by particular Verifiable Issuers, and the governance of that list would be minimal. Another list could be maintained by a government, associated with well-governed accreditation procedures, for the purpose of assuring that a diploma represents a proper education. Lists of Verifiable Issuers support Verifiers in their decision to trust the Issuer of a Verifiable Credential that is presented by a Holder.
+      </p>
+Digitally sharing lists of Verifiable Issuers and Verifiers is a relatively new concept. Examples are the list of parties that are allowed to use the digital fingerprint information on the chip of RFID-based digital passports. This is cryptographically enforced: “chip-says-no” when an unauthorized party attempts to access this information on the chip. Also eIDAS v2 will have a Verifiable-Verifiers List that limits the access of Verifiers to credentials in a EUDI (EUropean Digital Identity) wallet. Verifiable-Verifiers Lists support Holders and holder implementations in their decision to trust a Verifier to share a Verifiable Presentation to that Verifier.
+
+      <p>
+Lists of Verifiable Issuers and Verifiers help to automate the decision process of whether to engage with a counterparty in a transaction and make it more auditable by ensuring that software can note that a party was on a list before engaging with them. This paper contains the following sections that provide background on the problem space as well as a proposed set of solutions given the current state of the market:
+      </p>
+
+      <ul>
+        <li>
+Section 2 presents a set of use cases in the digital age that explain the use of lists of Verifiable Issuers and Verifiers.
+        </li>
+
+        <li>
+Section 3 analyses prior art such as lists of Verifiable Issuers and Verifiers that have already been deployed, or that are being developed, as well as a gap analysis of the current solutions and desired outcomes.
+        </li>
+
+        <li>
+Section 4 highlights the unified requirements derived from the analysis of prior art and a conceptual model for sharing lists of Verifiable Issuers and Verifiers and the format of the entries in the list.
+        </li>
+
+        <li>
+Section 5 provides a concrete data model and possible serializations, which could serve as a starting point for future standardization.
+        </li>
+
+        <li>
+Section 6 discusses possible next steps towards future standardization.
+        </li>
+
+        <li>
+Section 7 concludes the paper and proposes future work.
+        </li>
+      </ul>
+
+      <p>
+The target audience of this paper are people that know the basics of Self-Sovereign Identity (SSI) such as the concepts of Issuer, Holder, Verifier, and Verifiable Credential. SSI developers may use this document as input and inspiration for their code and other products. Deployers of SSI use cases may use this document in the specification process of their deployment.
+      </p>
+
       <section id="terminology">
         <h2>Terminology</h2>
         <p>
