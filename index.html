@@ -368,6 +368,64 @@ presentation</a> for processing. Other specifications might refer to this
 concept as a relying party.
 </p>
 
+        <section>
+<h3>Criteria</h3>
+<p>
+This section contains criteria that can be used to determine whether something
+does or does not fit a particular terminological definition in the previous
+section.
+</p>
+<p>
+<strong>sharing</strong>
+</p>
+<ul>
+<li>Enables other parties to obtain a copy of a <strong>list entry</strong>
+about an <strong>Issuer</strong> or <strong>Verifier</strong> from the
+<strong>list</strong>, e.g. in VC format, through DNS query, or other mechanism.
+<li>May or may not enable others to obtain a copy of the full contents of a
+<strong>list</strong>.
+<li>Those others may be anyone in the world, or they may be only those who have
+access to the <strong>list</strong> or to a specific entry about an
+<strong>Issuer</strong> or <strong>Verifier</strong>.
+</li>
+</ul>
+<p>
+<strong>list</strong>
+</p>
+<ul>
+<li>Contains zero-or-more entries about any <strong>party</strong>.
+<li>A list entry contains data about one specific <strong>party.</strong> The
+data is specified by the <strong>party </strong>that <strong>governs
+</strong>the <strong>list</strong>.
+<li>A list is associated with a policy containing one or more criteria that are
+used to determine whether or not a <strong>party</strong> qualifies for being
+registered in the <strong>list</strong>. Criterion may distinguish between
+<strong>parties</strong>, e.g., between parties that are trusted to issue or
+verify VCs of a specific kind.
+<li>Other parties may use the data in a <strong>list entry </strong>as the basis
+for a decision, e.g., to share further information, or to engage in a
+transaction. The perceived use of <strong>list entries</strong> by other
+<strong>parties</strong> should guide the <strong>party</strong> that governs
+the <strong>list</strong> as it specifies the structure of <strong>list
+entries</strong>.
+</li>
+</ul>
+<p>
+<strong>parties</strong>
+</p>
+<ul>
+<li>Are expected to perform the roles of <strong>issuer</strong>,
+<strong>holder</strong>, and <strong>verifier</strong> as well as other
+verifiable-credential-related roles (e.g., revocator).
+<li>May or may not be a legal authority.
+<li>The <strong>party </strong>that manages the list has to be able to precisely
+describe the thing that the list entry enables because software will act upon
+that machine-readable description. For example, "Issues Student ID cards for
+University X".
+</li>
+</ul>
+        </section>
+
       </section>
 
       <section id="conformance">
@@ -395,6 +453,162 @@ JSON-LD.
       </section>
 
     </section>
+
+    <section>
+      <h2>Use Cases</h2>
+
+<p>
+This section outlines use cases that highlight the need for the technology
+described in this paper by discussing the use cases in two categories:
+</p>
+<ul>
+<li>Verifiable Issuers
+<li>Verifiable Verifiers
+</li>
+</ul>
+<p>
+A final use case section then checks for commonalities and differences between
+the two categories
+</p>
+<p>
+There are a number of other locations that have published use cases that are
+related to this paper. Rather than include those use cases in this document,
+they are included by reference:
+</p>
+<ul>
+<li><a
+href="https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/advance-readings/authorized-issuer-lists.md#authorized-issuer-list-use-cases">Authorized
+Issuer List Use Cases</a>
+<li><a
+href="https://gitlab.grnet.gr/essif-lab/infrastructure/fraunhofer/train_project_summary#business-problem">ESSIF-Lab
+Trust Management Infrastructure (TRAIN) Business Case</a>
+</li>
+</ul>
+<h3>2.1 Verifiable Issuer Use Cases</h3>
+<ul>
+<li>Acme Inc. is a producer of medical equipment. Twin Mountains Hospital
+decided to buy equipment from Acme Inc. The law says that medical equipment
+should be certified by a 3rd party certification body. Twin Mountains Hospital
+requests a certification from Acme, Inc.; Twin Mountains Hospital delivers it to
+them. The hospital then checks if Acme Inc. is in the Verifiable Issuer List of
+licensed 3rd party certification bodies to see if the Issuer of Acme Inc.'s
+certification is an approved certification body.
+<ul>
+<li>Note: The solution might need to convey a single item in a List vs. the
+entire List.
+<li>Note: Many similar certification/license use cases are out there.
+</li>
+</ul>
+<li>Walmay, Inc. is a wholesaler of drugs. John & Jane is a manufacturer of
+drugs. Walmay, Inc. finds out that a lot of Adenosine Triphosphate drugs has
+broken packaging and decides to return the lot to the manufacturer. It is
+required that all interactions in the drug market must be done only between
+authorized trading partners. John & Jane requests an authorized trading partner
+certificate from Walmay Inc. The certificate credential contains a link to the
+Issuer. John & Jane then verifies that the Issuer is a member of the
+Verifiable-Issuer List of Issuers authorized to issue ATP (Authorized Trading
+Partner) credentials.
+<li>Elena is an IT Administrator in the hiring department of a mid-size company
+that would like to vet job applicants as having received their degrees from an
+accredited college or university. Elena configures their hiring software to
+refer to multiple lists (Verifiable-Issuer Lists) containing several hundred
+organizations that are curated by the various accreditation bodies that they
+trust.
+<li>Line is elected treasurer of a Dutch church. In her role as treasurer, she
+goes online to open a bank account for the church. To comply with certain laws
+and adhere to internal risk mitigating policies, the bank needs to verify that
+Line has been authorized by the church to sign on its behalf. For companies,
+personal information about executive board members is registered by the Chamber
+of Commerce alongside the registration of the legal entity. However, due to the
+special sensitive nature of data regarding religious affiliations, the Chamber
+of Commerce in the case of religious institutions (mosque/synagogue/church) is
+prohibited from registering any data that can be correlated with a natural
+person. Instead of checking the Chamber of Commerce public register, the bank
+requests a credential from Line stating her mandate to sign, which she received
+from the church. The bank checks whether the church is on the Verifiable
+Issuer-List of Churches, which is maintained by the Chamber of Commerce. Finding
+the church on the list, the bank is now able to open a bank account for the
+church, which Line can administer.
+</li>
+</ul>
+<p>
+<p>
+Figure 1: A Verifiable-Issuer List helps verifying whether a diploma is genuine.
+</p>
+<h3>2.2 Verifiable Verifier Use Cases</h3>
+<p>
+See also <a
+href="https://blockchain.tno.nl/blog/verify-the-verifier-anti-coercion-by-design/">Verify
+the Verifier - Anti-coercion by Design; October 2020 | TNO</a>
+</p>
+<ul>
+<li>Yuri has a digital driver's license and is attempting to rent a car from
+CarMart. CarMart requests to see Yuri's age, motor vehicle class, and driver's
+license number. Yuri's software checks against a Verifiable-Verifier List to
+make sure that CarMart is a Verifiable authority for information of that type,
+so it can warn Yuri if CarMart isn't trusted to request that information from
+Yuri.
+<li>Oskar joins a tennis club. The tennis club requests a government-issued
+proof of birth date. However, the tennis club does not have authorization to ask
+for this personal information. As a consequence, Oskar’s certified EUDI wallet
+refuses to present the information, based on the absence of the tennis club in
+the relevant Verifiable-Verifier List. The tennis club realizes that they cannot
+obtain this high-LoA information from the EUDI wallet and instead accepts a
+self-asserted date-of-birth by Oskar.
+<li>Oskar was invited by the European Commission to become an evaluator. Even
+though Oskar would be paid only the equivalent of a book voucher, the EC
+requires a full contracting process, which includes an eIDAS LoA high
+identification and a recent authentic bank statement. Even though Oskar
+considers these requirements unreasonable, Oskar’s certified EUDI wallet accepts
+the request, as the EC is registered in the relevant Verifiable-Verifier List.
+This way, Oskar knows at least that the request is genuine, and that there
+exists a sufficiently-well-governed policy associated with the request.
+<li>Oskar crosses the border to Dystopia. Immigration requests that Oskar
+surrender all Verifiable Credentials in his SSI wallet, including
+identification, driver’s license, diplomas, certifications and other records.
+Immigration of this country is not authorized to make such a wide request, as it
+is not included in the relevant Verifiable-Verifier List. As a consequence,
+Oskar’s certified EUDI wallet refuses to present this information. Even the
+threat of denial-of-entry or worse cannot change the situation, as neither
+immigration nor Oskar himself is physically able to compromise Oskar’s EUDI
+wallet to surrender the information.
+</li>
+</ul>
+<p>
+</p>
+<p>
+Figure 2: A properly-implemented wallet with Verifiable-Verifier List protects
+citizens against overzealous law enforcement.
+</p>
+<h3>2.3 Commonalities and Differences</h3>
+<p>
+Conceptually and technically, the two types of lists (Verifiable Issuer,
+Verifiable Verifier) are fairly similar. Each type is a governed list of parties
+with a role in SSI exchanges. Each type needs to provide some form of sharing
+(publication/access), so that the list is available to its users. This paper
+will presume that the types of lists themselves, as well as their sharing
+methods, can be technically identical. The only distinction is that a list could
+contain only Verifiable Issuers, only Verifiable Verifiers, or a mixture<sup
+id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> of both, so the data model
+should accommodate this.
+</p>
+<p>
+Major differences arise in the applications surrounding the lists. Verifiable
+Issuer lists target Verifier implementations, whereas Verifiable Verifier lists
+target Holder (digital wallet) implementations. Also there may be major
+differences in the governance between the two types of lists, or whether/how the
+consulting of lists is implemented and enforced. All of these differences are
+out of the scope of this paper.
+</p>
+
+    </section>
+
+    <section>
+      <h2>Requirements</h2>
+
+
+    </section>
+
 
     <section>
       <h2>Data Model</h2>
