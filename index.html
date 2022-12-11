@@ -741,58 +741,58 @@ Credential
     </section>
 
     <section>
-      <h3>Serialization as Verifiable Credential</h3>
+      <h3>Verifiable Credential</h3>
 
-      <p>
-        The data model described in this section can be expressed as a Verifiable
-        Credential as outlined in the example below:
-        </p>
+<p>
+The data model described in this section can be expressed as a Verifiable
+Credential as outlined in the example below:
+</p>
 
 
-        <pre
-        class="prettyprint">{
-          "@context": [
-            "https://www.w3.org/2018/credentials/v2",
-            "https://w3id.org/verifiable-party/v1"
-          ],
-          "issuer": {
-            "id": "did:web:authority.example",
-            "name": "National Education Accreditation Authority of Utopia"
-          },
-          "issuanceDate": "2023-02-13T00:18:30.053Z",
-          "type": ["VerifiableCredential", "VerifiablePartyCredential"],
-          "credentialSubject": [{
-            "id": "did:web:registrar.utopia.edu.example",
-            "type": "VerifiableIssuer",
-            "name": "Utopia University Registrar",
-            "legalName": "The Polytechnic University of Utopia Registrar",
-            "website": "https://utopia.edu.example/",
-            "email": "accreditation@neaau.org.example",
-            "identifier": [{
-              "type": "PropertyValue",
-              "propertyId": "Utopia Educational Institution ID",
-              "value": "123456789"
-            }],
-            "usesOperationalScheme": [{
-              "id": "http://oid-info.com/get/1.2.3.4.5",
-              "name": "Utopian Trust Scheme 819-4"
-            }],
-            "accreditation": [{
-              "id": "https://utopia.gov.example/accreditations/123"
-            }],
-            "authorizedToIssue": [{
-              "type": "UniversityDegreeCredential",
-              "credentialSchema": {
-                "id": "https://Issuer.example/degree.json",
-                "type": "AuthorizedIssuerJsonSchema2022",
-                "schema": "{\"properties\":\{\"credentialSubject.state\":\"UA\"}}"
-              }
-            }]
-          },
-          "proof": { ... }
-        }
-        </pre>
-            </section>
+<pre
+class="prettyprint">{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v2",
+    "https://w3id.org/verifiable-party/v1"
+  ],
+  "issuer": {
+    "id": "did:web:authority.example",
+    "name": "National Education Accreditation Authority of Utopia"
+  },
+  "issuanceDate": "2023-02-13T00:18:30.053Z",
+  "type": ["VerifiableCredential", "VerifiablePartyCredential"],
+  "credentialSubject": [{
+    "id": "did:web:registrar.utopia.edu.example",
+    "type": "VerifiableIssuer",
+    "name": "Utopia University Registrar",
+    "legalName": "The Polytechnic University of Utopia Registrar",
+    "website": "https://utopia.edu.example/",
+    "email": "accreditation@neaau.org.example",
+    "identifier": [{
+      "type": "PropertyValue",
+      "propertyId": "Utopia Educational Institution ID",
+      "value": "123456789"
+    }],
+    "usesOperationalScheme": [{
+      "id": "http://oid-info.com/get/1.2.3.4.5",
+      "name": "Utopian Trust Scheme 819-4"
+    }],
+    "accreditation": [{
+      "id": "https://utopia.gov.example/accreditations/123"
+    }],
+    "authorizedToIssue": [{
+      "type": "UniversityDegreeCredential",
+      "credentialSchema": {
+        "id": "https://Issuer.example/degree.json",
+        "type": "AuthorizedIssuerJsonSchema2022",
+        "schema": "{\"properties\":\{\"credentialSubject.state\":\"UA\"}}"
+      }
+    }]
+  },
+  "proof": { ... }
+}
+</pre>
+    </section>
 
   </body>
 </html>
