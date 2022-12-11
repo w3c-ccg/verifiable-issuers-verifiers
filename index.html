@@ -691,6 +691,53 @@ The following sections outline the data model that is used by this specification
 for Verifiable Issuer and Verifier Lists.
       </p>
 
+<p>
+The data model described in this section has been built using input from a
+variety of the prior art evaluated for this paper including input from the EBSI
+Trusted Issuer Registry, ETSI TS 119 612, eSSIF-Lab TRAIN, the Trust over IP
+Foundation Trust Registry Protocol, and Rebooting the Web of Trust input
+documents. The data model described in this section is capable of expressing
+many, but not all, of the concepts described in those other specifications.
+</p>
+<p>
+The unified data model for this work can be represented as a list of entries
+that represent parties.
+</p>
+<p>
+Each list entry, representing a party, contains the following mandatory
+information:
+</p>
+<ul>
+<li>An identifier
+<li>The type, such as a "VerifiableIssuer" or "VerifiableVerifier"
+<li>A human-readable name
+</li>
+</ul>
+<p>
+Each list entry, representing a party, might contain the following optional
+information:
+</p>
+<ul>
+<li>A legal name
+<li>An associated website
+<li>An email address
+<li>A set of identifiers that specify a human readable name for the property and
+its corresponding value
+<li>A set of operational schemes, such as a trust scheme, under which it
+operates, stored as tuples of a URL to the operational scheme and a
+human-readable name.
+<li>A set of accreditations that are identified by URL
+<li>A set of credentials that the party is authorized to issue, verify, or
+otherwise process where each credential description MUST contain:
+<ul>
+<li>A type
+<li>A credential schema that can be used to match against a Verifiable
+Credential
+</li>
+</ul>
+</li>
+</ul>
+
     </section>
 
   </body>
