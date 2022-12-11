@@ -575,8 +575,6 @@ wallet to surrender the information.
 </li>
 </ul>
 <p>
-</p>
-<p>
 Figure 2: A properly-implemented wallet with Verifiable-Verifier List protects
 citizens against overzealous law enforcement.
 </p>
@@ -606,6 +604,81 @@ out of the scope of this paper.
     <section>
       <h2>Requirements</h2>
 
+<h3>4.1 Conceptual Model</h3>
+<p>
+An Assurance Community is what governs a list of Verifiable Issuers and/or
+Verifiers. The community can consist of a single person, a group of people, an
+organization, a group of organizations, or any other relevant structure. The
+governing can be purely manual, partially automated, or completely automated
+through the use of APIs or smart contracts.
+</p>
+<p>
+A list of Verifiable Issuers and/or Verifiable Verifiers contains entries with
+information about the Issuers and/or Verifiers that it verifies.This information
+can be as minimal as a single DID or public key per Verifiable Issuer or
+Verifiable Verifier, or it can also include metadata about each entity and the
+services that each entity performs.
+</p>
+<p>
+An Interested Party is an entity that uses one or more entries from the List of
+Verifiable Issuers and/or Verifiable Verifiers in a decision making process. An
+interested party is typically software that is acting on behalf of an Issuer,
+Holder, or Verifier. The party might request the entire List, or portions of the
+List over either a public channel, or a private channel.
+</p>
+<p>
+<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html
+alert: inline drawings not supported directly from Docs. You may want to copy
+the inline drawing to a standalone drawing and export by reference. See <a
+href="https://github.com/evbacher/gd2md-html/wiki/Google-Drawings-by-reference">Google
+Drawings by reference</a> for details. The img URL below is a placeholder.
+</span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next
+alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<img src="https://docs.google.com/drawings/d/12345/export/png" width="80%"
+alt="drawing">
+Figure 6: Conceptual model of sharing Lists of Verifiable Issuers and Verifiers.
+</p>
+<h3>4.2 Requirements</h3>
+<p>
+The following requirements have been specified by the authors. It includes both
+requirements on a Verifiable-Issuers/Verifiers List (“a list” in short) as a
+whole and its individual entries. These requirements may be updated in the
+future.
+</p>
+<ul>
+<li>A list may be created and governed by any individual, group of individuals,
+organization, group of organizations, or other.
+<li>A list and/or its entries shall be made available to subscribers.
+<li>A list and/or its individual entries shall be serializable in one or more
+formats such as a Verifiable Credential.
+<li>Entries may be made available via a Wallet, a Website, a URI, a QR code, a
+DNS Resource Records, DNSSEC, on-chain Ethereum transactions, or other methods.
+<li>A list and its entries shall be cryptographically verifiable.
+<ul>
+<li>A list shall accommodate Different cryptographic mechanisms (X.509, JWK
+etc.).
+<li>There shall be an ability to authenticate the list or an individual entry.
+</li>
+</ul>
+<li>A list and its entries shall have associated Governance Metadata Format,
+including:
+<ul>
+<li>Policies; and
+<li>Qualifier details.
+</li>
+</ul>
+<li>A list and its entries shall be publicly resolvable.
+<li>A list and its entries shall be privately transmittable/retrievable.
+<li>A list may have metadata associated with it, e.g., metadata that is
+applicable to all of its entries.
+<li>A list may have different levels of privacy/confidentiality, ranging from
+fully public to for-authorized-yes-only.
+<li>Entries shall be able to be created, read, and deleted.
+<li>Entries may be updated, suspended and/or revoked.
+<li>Entries may have an individual level of assurance associated with it.
+<li>Entries may have an associated level of assurance.
+</li>
+</ul>
 
     </section>
 
