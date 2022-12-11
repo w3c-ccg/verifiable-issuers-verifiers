@@ -227,6 +227,146 @@ use this document in the specification process of their deployment.
         <p>
 The following terms are used to describe concepts in this document.
         </p>
+<p>
+<strong>Credential</strong>
+</p>
+<p>
+    A set of one or more <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-claims">claims</a> made by an <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-issuers">issuer</a>. A
+<strong>verifiable credential</strong> is a tamper-evident credential that has
+authorship that can be cryptographically verified. Verifiable credentials can be
+used to build <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations">verifiable
+presentations</a>, which can also be cryptographically verified. The <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-claims">claims</a> in a
+credential can be about different <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-subjects">subjects. </a>
+</p>
+<p>
+<strong>Electronic Identification, Authentication and Trust Services
+(eIDAS)</strong>
+</p>
+<p>
+    <strong>eIDAS</strong> (<strong>e</strong>lectronic
+<strong>ID</strong>entification, <strong>A</strong>uthentication and trust
+<strong>S</strong>ervices) is an <a
+href="https://en.wikipedia.org/wiki/Regulation_(European_Union)">EU
+regulation</a> on <a
+href="https://en.wikipedia.org/wiki/Electronic_identification">electronic
+identification</a> and <a
+href="https://en.wikipedia.org/wiki/Trust_service_provider">trust services</a>
+for <a href="https://en.wikipedia.org/wiki/Electronic_transactions">electronic
+transactions</a> in the <a
+href="https://en.wikipedia.org/wiki/European_Single_Market">European Single
+Market</a>. It was established in EU Regulation 910/2014 of 23 July 2014.<sup>
+</sup>All organizations delivering public digital services in an EU member state
+must recognize electronic identification from all EU member states from
+September 29, 2018.
+</p>
+<p>
+<strong>European Digital Identity (EUDI)</strong>
+</p>
+<p>
+    The European Digital Identity is based on a European Commission document
+called “European Digital Identity Architecture and Reference Framework” that has
+established the functional and architectural requirements for an upcoming
+European Digital Identity Wallet.
+</p>
+<p>
+<strong>Holder</strong>
+</p>
+<p>
+    A role an <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-entities">entity</a> might
+perform by possessing one or more <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-credentials">verifiable
+credentials</a> and generating <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-presentations">presentations</a>
+from them. A holder is usually, but not always, a <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-subjects">subject</a> of the <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-credentials">verifiable
+credentials</a> they are holding. Holders store their <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-credential">credentials</a> in <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-credential-repository">credential
+repositories</a>.
+</p>
+<p>
+<strong>Issuer</strong>
+</p>
+<p>
+    A role an <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-entities">entity</a> can perform
+by asserting <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-claims">claims</a> about one or
+more <a href="https://www.w3.org/TR/vc-data-model/#dfn-subjects">subjects</a>,
+creating a <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-credentials">verifiable
+credential</a> from these <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-claims">claims</a>, and
+transmitting the <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-credentials">verifiable
+credential</a> to a <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-holders">holder</a>.
+</p>
+<p>
+<strong>Level of Assurance (LoA)</strong>
+</p>
+<p>
+    The degree of certainty that a relying party can have about the true
+identity of someone presenting an identity credential. Four levels of assurance
+were outlined by a 2006 document from the US National Institute of Standards and
+Technology (NIST 800-63). The level of assurance is measured by the strength and
+rigor of the identity proofing process, the strength of the token used to
+authenticate the identity claim, and the management processes the identity
+provider applies to it.
+</p>
+<p>
+<strong>Sharing</strong>
+</p>
+<p>
+    The act of transferring information from one party to another. This paper
+uses the word "sharing" instead of "publishing" as the latter presumes a one-way
+and public transfer of information. The <strong>Verifiable
+Issuer/Verifier</strong> <strong>lists</strong> described in this paper are made
+available in some form or other. They might be pushed to a party or pulled from
+a party and might use a public communication channel or a private one.
+</p>
+<p>
+<strong>Verifiable Issuer / Verifiable Verifier</strong>
+</p>
+<p>
+    A party that is verifiable might have different levels of trustworthiness
+associated with it by different parties. Note that “trusted” or “authorized” are
+sometimes used as synonyms for “verifiable”, as the purpose of some lists is to
+assure trust or authority. This paper uses the word “verifiable” as no
+presumption should be made about the application of the lists, or the
+trust/authority that they assure.
+</p>
+<p>
+<strong>Verifiable Issuer/Verifier List</strong>
+</p>
+<p>
+    A container that consists of a set of <strong>Verifiable</strong>
+<strong>Issuers</strong> or <strong>Verifiers</strong>. The word “list” can be
+considered synonymous to “register”, depending on the amount of governance,
+assurances and authority associated with it. This paper uses the word “list” and
+presumes there will always be some form of governance, if only the establishment
+of its purpose and the format of its entries.
+</p>
+<p>
+<strong>Verifier</strong>
+</p>
+<p>
+    A role an <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-entities">entity</a> performs by
+receiving one or more <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-credentials">verifiable
+credentials</a>, optionally inside a <a
+href="https://www.w3.org/TR/vc-data-model/#dfn-verifiable-presentations">verifiable
+presentation</a> for processing. Other specifications might refer to this
+concept as a relying party.
+</p>
 
       </section>
 
