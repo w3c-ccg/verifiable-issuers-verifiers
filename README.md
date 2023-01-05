@@ -5,4 +5,4 @@ This work focuses on how a party or its agent can decide whether or not to engag
 
 You can view the live version of this specification here:
 
-https://msporny.github.io/verifiable-issuers-verifiers/
+https://w3c-ccg.github.io/verifiable-issuers-verifiers/
