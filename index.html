@@ -46,7 +46,7 @@
           company: "Fraunhofer IAO, Germany"
         }, {
           name: "David Chadwick v0.2",
-          company: "University of Kent"
+          company: "Truetrust Ltd"
         }, {
           name: "Manu Sporny v0.1",
           company: "Digital Bazaar"
@@ -57,7 +57,7 @@
           company: "Fraunhofer IAO, Germany"
         }, {
           name: "David Chadwick v0.2",
-          company: "University of Kent"
+          company: "Truetrust Ltd"
         },{
           name: "Manu Sporny v0.1",
           company: "Digital Bazaar"
@@ -732,11 +732,35 @@ documents. The data model described in this section is capable of expressing
 many, but not all, of the concepts described in those other specifications.
 </p>
 <p>
-The unified data model for this work can be represented as a list of entries
-that represent parties.
+The unified data model for this work can be represented as a list of service providers
+that represent entities or orgnaizations that provides services such as credential issuance or validation. The Data Model also contains the details of the list operator informations.
 </p>
+
+<h1>Overview of List Operator</h1>
+<p>The List Operator provides a framework for managing a trusted list, which includes essential information about the entity responsible for the list's maintenance and its associated attributes.</p>
+
+<h2>Attributes of List Operator</h2>
+<ul>
+    <li><strong>ListOperatorInformation:</strong> Provides a set of information about the owner of the trusted list.</li>
+    <li><strong>TSLVersionIdentifier:</strong> Specifies the version of the TL format.</li>
+    <li><strong>TSLSequenceNumber:</strong> Sequence number of the TL, starting at 1, incremented at each release.</li>
+    <li><strong>TSLType:</strong> Specifies the type of the trusted list, set to "https://w3c.org/ccg/TSLv1".</li>
+    <li><strong>ListOperatorName:</strong> Name of the entity responsible for establishing, publishing, signing, and maintaining the trusted list.</li>
+    <li><strong>ListOperatorAddress:</strong> Postal address of the legal entity or mandated organization identified by the list operator name.</li>
+    <li><strong>ElectronicAddress:</strong> Email address of the list operator.</li>
+    <li><strong>WebSite:</strong> Website URI of the list operator.</li>
+    <li><strong>ListName:</strong> Name under which the list operates.</li>
+    <li><strong>ListInformationURIs:</strong> Set of URIs for obtaining list-specific information.</li>
+    <li><strong>ListTerritory:</strong> Country or territory where the scheme is established, preferably as ISO country codes.</li>
+    <li><strong>PolicyOrLegalNotice:</strong> Policy or legal notice concerning the list's status or legal requirements.</li>
+    <li><strong>IssuedAt:</strong> UTC date/time when the list was issued.</li>
+    <li><strong>NextUpdate:</strong> UTC date/time by which an update of the TL will be available, or null for a closed TL.</li>
+    <li><strong>DistributionPoints:</strong> Locations where the current TL is published and updates can be found.</li>
+</ul>
+
+<h1>Overview of Trust Service Provider</h1>
 <p>
-Each list entry, representing a party, contains the following mandatory
+Each list entry, representing a service provider, contains the following mandatory
 information:
 </p>
 <ul>
