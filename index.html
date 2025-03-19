@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Verifiable Issuers and Verifiers v0.1</title>
+    <title>Verifiable Issuers and Verifiers v0.2</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <!--
       === NOTA BENE ===
@@ -42,33 +42,39 @@
         // editors, add as many as you like
         // only "name" is required
         editors: [{
-          name: "Isaac Henderson Johnson Jeyakumar",
+          name: "Isaac Henderson Johnson Jeyakumar v0.1,0.2",
           company: "Fraunhofer IAO, Germany"
         }, {
-          name: "Manu Sporny",
+          name: "David Chadwick v0.2",
+          company: "Truetrust Ltd"
+        }, {
+          name: "Manu Sporny v0.1",
           company: "Digital Bazaar"
         }],
 
         authors: [{
-          name: "Manu Sporny",
-          company: "Digital Bazaar"
-        }, {
-          name: "Oskar van Deventer",
-          company: "TNO"
-        }, {
-          name: "Isaac Henderson Johnson Jeyakumar",
+          name: "Isaac Henderson Johnson Jeyakumar v0.1, v0.2",
           company: "Fraunhofer IAO, Germany"
         }, {
-          name: "Shigeya Suzuki",
+          name: "David Chadwick v0.2",
+          company: "Truetrust Ltd"
+        },{
+          name: "Manu Sporny v0.1",
+          company: "Digital Bazaar"
+        }, {
+          name: "Oskar van Deventer v0.1",
+          company: "TNO"
+        }, {
+          name: "Shigeya Suzuki v0.1",
           company: "Keio University"
         }, {
-          name: "Konstantin Tsabolov",
+          name: "Konstantin Tsabolov v0.1",
           company: "Spherity"
         }, {
-          name: "Line Kofoed",
+          name: "Line Kofoed v0.1",
           company: "Bloqzone"
         }, {
-          name: "Rieks Joosten",
+          name: "Rieks Joosten v0.1",
           company: "TNO"
         }],
 
@@ -726,11 +732,35 @@ documents. The data model described in this section is capable of expressing
 many, but not all, of the concepts described in those other specifications.
 </p>
 <p>
-The unified data model for this work can be represented as a list of entries
-that represent parties.
+The unified data model for this work can be represented as a list of service providers
+that represent entities or orgnaizations that provides services such as credential issuance or validation. The Data Model also contains the details of the list operator informations.
 </p>
+
+<h1>Overview of List Operator</h1>
+<p>The List Operator provides a framework for managing a trusted list, which includes essential information about the entity responsible for the list's maintenance and its associated attributes.</p>
+
+<h2>Attributes of List Operator</h2>
+<ul>
+    <li><strong>ListOperatorInformation:</strong> Provides a set of information about the owner of the trusted list.</li>
+    <li><strong>TSLVersionIdentifier:</strong> Specifies the version of the TL format.</li>
+    <li><strong>TSLSequenceNumber:</strong> Sequence number of the TL, starting at 1, incremented at each release.</li>
+    <li><strong>TSLType:</strong> Specifies the type of the trusted list, set to "https://w3c.org/ccg/TSLv1".</li>
+    <li><strong>ListOperatorName:</strong> Name of the entity responsible for establishing, publishing, signing, and maintaining the trusted list.</li>
+    <li><strong>ListOperatorAddress:</strong> Postal address of the legal entity or mandated organization identified by the list operator name.</li>
+    <li><strong>ElectronicAddress:</strong> Email address of the list operator.</li>
+    <li><strong>WebSite:</strong> Website URI of the list operator.</li>
+    <li><strong>ListName:</strong> Name under which the list operates.</li>
+    <li><strong>ListInformationURIs:</strong> Set of URIs for obtaining list-specific information.</li>
+    <li><strong>ListTerritory:</strong> Country or territory where the scheme is established, preferably as ISO country codes.</li>
+    <li><strong>PolicyOrLegalNotice:</strong> Policy or legal notice concerning the list's status or legal requirements.</li>
+    <li><strong>IssuedAt:</strong> UTC date/time when the list was issued.</li>
+    <li><strong>NextUpdate:</strong> UTC date/time by which an update of the TL will be available, or null for a closed TL.</li>
+    <li><strong>DistributionPoints:</strong> Locations where the current TL is published and updates can be found.</li>
+</ul>
+
+<h1>Overview of Trust Service Provider</h1>
 <p>
-Each list entry, representing a party, contains the following mandatory
+Each list entry, representing a service provider, contains the following mandatory
 information:
 </p>
 <ul>
@@ -763,6 +793,184 @@ Credential
 </ul>
 </li>
 </ul>
+<h2>Attributes of Trust Service Provider</h2>
+<ul>
+    <li><strong>TrustServiceProviderList:</strong> Set containing the list of TSPs and their approved trust services.</li>
+    <li><strong>TrustServiceProvider:</strong> Object containing information about one TSP and its trust services.</li>
+    <li><strong>TSPInfo:</strong> Object containing information about the TSP.</li>
+    <li><strong>UUID:</strong> UUID of the TSP.</li>
+    <li><strong>TSPName:</strong> Legal name of the TSP.</li>
+    <li><strong>TSPTradeName:</strong> Trade name of the TSP.</li>
+    <li><strong>TSPAddress:</strong> Postal address of the TSP.</li>
+    <li><strong>TSPEmail:</strong> Email address of the TSP.</li>
+    <li><strong>TSPCertifications:</strong> Set of certifications of the TSP, e.g., ISO 27001. Each certification comprises a type and a value.</li>
+    <li><strong>TSPIdentifiers:</strong> Set of identifiers of the TSP, e.g., LEI, company registration numbers. Each identifier comprises a type and a value.</li>
+    <li><strong>TSPURIs:</strong> URI(s) where users can obtain TSP-specific information.</li>
+    <li><strong>TSPServices:</strong> Set of services provided by the TSP.</li>
+    <li><strong>TSPService:</strong> Object detailing one service provided by the TSP.</li>
+    <li><strong>ServiceTypeIdentifier:</strong> URI indicating the type of service provided by the TSP, such as:
+        <ul>
+            <li>https://w3c.org/ccg/st/trusted_issuer - TSP that issues certificates to users.</li>
+            <li>https://w3c.org/ccg/st/trusted_verifier - TSP that requests certificates from users.</li>
+        </ul>
+    </li>
+    <li><strong>ServiceName:</strong> Name under which the TSP provides the service.</li>
+    <li><strong>ServiceCurrentStatus:</strong> Current status of the service ("Active" or "Withdrawn").</li>
+    <li><strong>StatusStartingTime:</strong> UTC date and time when the current status became effective.</li>
+    <li><strong>ServiceDigitalIdentity:</strong> Digital identifier(s) that unambiguously identify the service with the name and type associated.</li>
+    <li><strong>ServiceDefinitionURIs:</strong> Set of URI(s) for obtaining service-specific information from the TL operator.</li>
+    <li><strong>ServiceSupplyPoints:</strong> URIs where relying parties can access the service.</li>
+    <li><strong>AdditionalServiceInformation:</strong> Object specifying additional information about the service, such as:
+        <ul>
+            <li>ServiceBusinessRulesURI</li>
+            <li>ServiceGovernanceURI</li>
+            <li>ServiceContractType</li>
+            <li>ServicePolicySet</li>
+        </ul>
+    </li>
+</ul>
+
+<pre
+class="prettyprint">{
+  "ListOperatorInformation": {
+    "TSLVersionIdentifier": "6",
+    "TSLSequenceNumber": "1",
+    "TSLType": "https://www.educertify.com/tsl/types/education-list",
+    "ListOperatorName": "EduCertify Germany",
+    "ListOperatorAddress": {
+      "PostalAddresses": {
+        "PostalAddress": {
+          "StreetAddress": "Bildungszentrum",
+          "Locality": "Berlin",
+          "PostalCode": "10115",
+          "CountryName": "Germany"
+        }
+      }
+    },
+    "ElectronicAddress": "mailto:info@educertify.com",
+    "ListName": "EduCertify Education Trust List",
+    "ListInformationURI": "https://www.educertify.com/education-credentials",
+    "StatusDeterminationApproach": "https://www.educertify.com/status-determination",
+    "ListTerritory": "DE",
+    "PolicyOrLegalNotice": "This trust list is regulated by the legal framework established by the German Government.",
+    "HistoricalInformationPeriod": "65535",
+    "NextUpdate": "2030-12-31T00:00:00Z",
+    "DistributionPoints": "https://www.educertify.com/tl/education-list.xml"
+  },
+    "TrustServiceProviderList": {
+      "TrustServiceProvider": {
+    "TSPInformation": {
+	  "UUID": "123435",
+      "TSPName": "EduCertify Inc.",
+      "TSPTradeName": "EduCertify",
+      "TSPAddress": {
+        "ElectronicAddress": "info@educertify.com",
+        "PostalAddress": {
+          "City": "Berlin",
+          "Country": "DE",
+          "PostalCode": "10115",
+          "State": "BE",
+          "StreetAddress1": "Humboldtstr",
+          "StreetAddress2": "10"
+        }
+      },
+      "TSPCertificationList": {
+        "TSPCertification": [
+          {
+            "Type": "ISO:27001",
+            "Value": "5432167890"
+          },
+          {
+            "Type": "EDU-ACCREDITATION",
+            "Value": "1234567890"
+          }
+        ]
+      },
+      "TSPEntityIdentifierList": {
+        "TSPEntityIdendifier": [
+          {
+            "Type": "vLEI",
+            "Value": "9876543210"
+          },
+          {
+            "Type": "EDU-ID",
+            "Value": "EDU123456"
+          }
+        ]
+      },
+      "TSPInformationURI": "https://educertify.com/tsp-info",
+	  "TSPLegalBasis": "https://educertify.com/legal-info",
+    },
+    "TSPServices": {
+      "TSPService": [
+        {
+          "ServiceName": "Education Credential Issuer",
+          "ServiceTypeIdentifier": "did:web:educertify.com",
+          "ServiceCurrentStatus": "Active",
+          "StatusStartingTime": "2024-01-01T00:00:00Z",
+		  "StatusEndingTime": " ",
+          "ServiceDefinitionURI": "https://educertify.com/services/credential-issuer/metadata",
+          "ServiceDigitalIdentity": {
+            "DigitalId": [
+              {
+                "X509Certificate": "certificate_data_example_1"
+              },
+              {
+                "DID": "did:web:educertify.com"
+              }
+            ]
+          },
+          "AdditionalServiceInformation": {
+            "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
+            "ServiceGovernanceURI": "https://educertify.com/governance",
+            "ServiceIssuedCredentialTypes": {
+              "CredentialType": [
+                {
+                  "Type": "Diploma"
+                },
+                {
+                  "Type": "Certificate"
+                }
+              ]
+            },
+            "ServiceContractType": "Standard",
+            "ServicePolicySet": "https://Privacy Policy",
+            "ServiceSchemaURI": "https://educertify.com/schema",
+            "ServiceSupplyPoint": "https://issuer.com/OnlinePortal"
+          }
+        },
+		{
+          "ServiceName": "Education Credential Verifier",
+          "ServiceTypeIdentifier": "VerifierService",
+          "ServiceCurrentStatus": "Active",
+          "StatusStartingTime": "2024-01-01T00:00:00Z",
+		  "StatusEndingTime": " ",
+          "ServiceDefinitionURI": "https://educertify.com/services/verifier/presentation-request",
+          "ServiceDigitalIdentity": {
+            "DigitalId": [
+              {
+                "X509Certificate": "certificate_data_example_1"
+              },
+              {
+                "DID": "did:web:educertify.com"
+              }
+            ]
+          },
+          "AdditionalServiceInformation": {
+            "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
+            "ServiceGovernanceURI": "https://educertify.com/governance",
+            "ServiceContractType": "Standard",
+            "ServicePolicySet": "Privacy Policy",
+            "ServiceSchemaURI": "https://educertify.com/schema",
+            "ServiceSupplyPoint": "https://verifier.com/OnlinePortaltal"
+          }
+        }
+      ]
+    }
+  }
+  }
+ }
+</pre>
 
     </section>
 
