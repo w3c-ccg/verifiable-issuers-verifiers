@@ -832,144 +832,186 @@ Credential
 
 <pre
 class="prettyprint">{
-  "ListOperatorInformation": {
-    "TSLVersionIdentifier": "6",
-    "TSLSequenceNumber": "1",
-    "TSLType": "https://www.educertify.com/tsl/types/education-list",
-    "ListOperatorName": "EduCertify Germany",
-    "ListOperatorAddress": {
-      "PostalAddresses": {
-        "PostalAddress": {
-          "StreetAddress": "Bildungszentrum",
-          "Locality": "Berlin",
-          "PostalCode": "10115",
-          "CountryName": "Germany"
-        }
-      }
-    },
-    "ElectronicAddress": "mailto:info@educertify.com",
-    "ListName": "EduCertify Education Trust List",
-    "ListInformationURI": "https://www.educertify.com/education-credentials",
-    "StatusDeterminationApproach": "https://www.educertify.com/status-determination",
-    "ListTerritory": "DE",
-    "PolicyOrLegalNotice": "This trust list is regulated by the legal framework established by the German Government.",
-    "HistoricalInformationPeriod": "65535",
-    "NextUpdate": "2030-12-31T00:00:00Z",
-    "DistributionPoints": "https://www.educertify.com/tl/education-list.xml"
-  },
-    "TrustServiceProviderList": {
-      "TrustServiceProvider": {
-    "TSPInformation": {
-	  "UUID": "123435",
-      "TSPName": "EduCertify Inc.",
-      "TSPTradeName": "EduCertify",
-      "TSPAddress": {
-        "ElectronicAddress": "info@educertify.com",
-        "PostalAddress": {
-          "City": "Berlin",
-          "Country": "DE",
-          "PostalCode": "10115",
-          "State": "BE",
-          "StreetAddress1": "Humboldtstr",
-          "StreetAddress2": "10"
-        }
-      },
-      "TSPCertificationList": {
-        "TSPCertification": [
-          {
-            "Type": "ISO:27001",
-            "Value": "5432167890"
-          },
-          {
-            "Type": "EDU-ACCREDITATION",
-            "Value": "1234567890"
-          }
-        ]
-      },
-      "TSPEntityIdentifierList": {
-        "TSPEntityIdendifier": [
-          {
-            "Type": "vLEI",
-            "Value": "9876543210"
-          },
-          {
-            "Type": "EDU-ID",
-            "Value": "EDU123456"
-          }
-        ]
-      },
-      "TSPInformationURI": "https://educertify.com/tsp-info",
-	  "TSPLegalBasis": "https://educertify.com/legal-info",
-    },
-    "TSPServices": {
-      "TSPService": [
-        {
-          "ServiceName": "Education Credential Issuer",
-          "ServiceTypeIdentifier": "did:web:educertify.com",
-          "ServiceCurrentStatus": "Active",
-          "StatusStartingTime": "2024-01-01T00:00:00Z",
-		  "StatusEndingTime": " ",
-          "ServiceDefinitionURI": "https://educertify.com/services/credential-issuer/metadata",
-          "ServiceDigitalIdentity": {
-            "DigitalId": [
-              {
-                "X509Certificate": "certificate_data_example_1"
-              },
-              {
-                "DID": "did:web:educertify.com"
-              }
-            ]
-          },
-          "AdditionalServiceInformation": {
-            "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
-            "ServiceGovernanceURI": "https://educertify.com/governance",
-            "ServiceIssuedCredentialTypes": {
-              "CredentialType": [
-                {
-                  "Type": "Diploma"
-                },
-                {
-                  "Type": "Certificate"
+
+    "ListOperatorInformation": {
+        "TSLVersionIdentifier": "1",
+        "TSLSequenceNumber": "1",
+        "TSLType": "https://w3c.org/ccg/TSLv1",
+        "ListOperatorName": "EduCertify Germany",
+        "ListOperatorAddress": {
+            "PostalAddresses": {
+                "PostalAddress": {
+                    "StreetAddress": "Bildungszentrum",
+                    "Locality": "Berlin",
+                    "PostalCode": "10115",
+                    "CountryName": "Germany"
                 }
-              ]
-            },
-            "ServiceContractType": "Standard",
-            "ServicePolicySet": "https://Privacy Policy",
-            "ServiceSchemaURI": "https://educertify.com/schema",
-            "ServiceSupplyPoint": "https://issuer.com/OnlinePortal"
-          }
+            }
         },
-		{
-          "ServiceName": "Education Credential Verifier",
-          "ServiceTypeIdentifier": "VerifierService",
-          "ServiceCurrentStatus": "Active",
-          "StatusStartingTime": "2024-01-01T00:00:00Z",
-		  "StatusEndingTime": " ",
-          "ServiceDefinitionURI": "https://educertify.com/services/verifier/presentation-request",
-          "ServiceDigitalIdentity": {
-            "DigitalId": [
-              {
-                "X509Certificate": "certificate_data_example_1"
-              },
-              {
-                "DID": "did:web:educertify.com"
-              }
+        "LOElectronicAddress": "mailto:info@educertify.com",
+        "LOWebSite": "https://www.educertify.com",
+        "ListName": "EduCertify Education Trust List",
+        "ListInformationURIs": [
+            "https://www.educertify.com/education-credentials"
+        ],
+        "ListTerritory": "DE",
+        "PolicyOrLegalNotice": "This trust list is regulated by the legal framework established by the German Government.",
+        "IssuedAt": "2024-12-31T00:00:00Z",
+        "NextUpdate": "2025-12-31T00:00:00Z",
+        "DistributionPoints": [
+            "https://www.educertify.com/tl/education-list.xml"
+        ]
+    },
+    "TrustServiceProviderList": [
+        {
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "123435",
+                    "TSPName": "EduCertify Inc.",
+                    "TSPTradeName": "EduCertify",
+                    "TSPAddress": {
+                        "ElectronicAddress": "info@educertify.com",
+                        "PostalAddress": {
+                            "City": "Berlin",
+                            "Country": "DE",
+                            "PostalCode": "10115",
+                            "State": "BE",
+                            "StreetAddress1": "Humboldtstr",
+                            "StreetAddress2": "10"
+                        }
+                    },
+                    "TSPEmail": "mailto:info@educertify.com",
+                    "TSPCertifications": [
+                        {
+                            "Type": "ISO:27001",
+                            "Value": "5432167890"
+                        },
+                        {
+                            "Type": "EDU-ACCREDITATION",
+                            "Value": "1234567890"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "vLEI",
+                            "Value": "9876543210"
+                        },
+                        {
+                            "Type": "EDU-ID",
+                            "Value": "EDU123456"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://educertify.com/tsp-info"
+                    ]
+                },
+                "TSPServices": [
+                    {
+                        "TSPService": {
+                            "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_issuer",
+                            "ServiceName": "Education Credential Issuer",
+                            "ServiceCurrentStatus": "Active",
+                            "StatusStartingTime": "2024-01-01T00:00:00Z",
+                            "ServiceDefinitionURIs": [
+                                "https://educertify.com/services/credential-issuer/metadata",
+                                "https://educertify.com/services/credential-issuer/schema"
+                            ],
+                            "ServiceSupplyPoints": [
+                                "https://issuer.com/OnlinePortal"
+                            ],
+                            "ServiceDigitalIdentity": [
+                                {
+                                    "X509Certificate": "certificate_data_example_1"
+                                },
+                                {
+                                    "DID": "did:web:educertify.com"
+                                }
+                            ],
+                            "AdditionalServiceInformation": {
+                                "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
+                                "ServiceGovernanceURI": "https://educertify.com/governance",
+                                "ServiceIssuedCredentialTypes": [
+                                    "Diploma",
+                                    "Certificate"
+                                ],
+                                "ServiceContractType": "Standard",
+                                "ServicePolicySet": "https://Privacy Policy"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "56789",
+                    "TSPName": "Supermarket Inc.",
+                    "TSPTradeName": "Supermarket",
+                    "TSPAddress": {
+                        "PostalAddress": {
+                            "City": "Munich",
+                            "Country": "DE",
+                            "PostalCode": "10145",
+                            "State": "BE",
+                            "StreetAddress1": "Humboldtstr",
+                            "StreetAddress2": "1"
+                        }
+                    },
+                    "TSPEmail": "mailto:info@supermarket.com",
+                    "TSPCertifications": [
+                        {
+                            "Type": "ISO:27001",
+                            "Value": "5432167890"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "vLEI",
+                            "Value": "9876543210"
+                        },
+                        {
+                            "Type": "Company Registration",
+                            "Value": "HRB 86786"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://supermarket.com/tsp-info"
+                    ]
+                }
+            },
+            "TSPServices": [
+                {
+                    "TSPService": {
+                        "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                        "ServiceName": "Job Application",
+                        "ServiceCurrentStatus": "Active",
+                        "StatusStartingTime": "2024-01-01T00:00:00Z",
+                        "ServiceDefinitionURIs": [
+                            "https://supermarket.com/services/jobApplicationWeb/meta",
+                            "https://supermarket.com/services/jobApplication/presentation-request"
+                        ],
+                        "ServiceDigitalIdentity": [
+                            {
+                                "X509Certificate": "certificate_data_example_2"
+                            },
+                            {
+                                "DID": "did:web:supermarket.com"
+                            }
+                        ],
+                        "ServiceSupplyPoints": ["https://supermarket.com/jobApplication"],
+                        "AdditionalServiceInformation": {
+                            "ServiceBusinessRulesURI": "https://supermarket.com/business-rules",
+                            "ServiceGovernanceURI": "https://supermarket.com/governance",
+                            "ServiceContractType": "Standard",
+                            "ServicePolicySet": "Privacy Policy"
+                        }
+                    }
+                }
             ]
-          },
-          "AdditionalServiceInformation": {
-            "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
-            "ServiceGovernanceURI": "https://educertify.com/governance",
-            "ServiceContractType": "Standard",
-            "ServicePolicySet": "Privacy Policy",
-            "ServiceSchemaURI": "https://educertify.com/schema",
-            "ServiceSupplyPoint": "https://verifier.com/OnlinePortaltal"
-          }
         }
-      ]
-    }
-  }
-  }
- }
+    ]
+}
 </pre>
 
     </section>
