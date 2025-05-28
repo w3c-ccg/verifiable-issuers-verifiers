@@ -137,38 +137,38 @@
   <body>
     <section id="abstract">
       <p>
-This work focuses on how a party or its agent can decide whether or not to
-engage with a counterparty in a transaction. The purpose of this work is to
-enable a party to share a list of Verifiable Issuers and Verifiers in a way that
-is useful to a particular transaction.
+        This work focuses on how a party or its agent can decide whether or not to
+        engage with a counterparty in a transaction. The purpose of this work is to
+        enable a party to share a list of Verifiable Issuers and Verifiers in a way that
+        is useful to a particular transaction.
       </p>
     </section>
 
     <section id="sotd">
 
       <p>
-There was extensive analysis of existing initiatives performed at the
-Rebooting the Web of Trust 11 conference in The Hague as well as a number of
-follow on meetings to coordinate activity across various communities. The
-paper analyzing the existing state of the art is available from the
-Rebooting The Web of Trust <a href="https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/draft-documents/verifiable-issuer-verifier-lists/verifiable-issuer-verifier-lists.pdf">
-paper archive</a>.
+        There was extensive analysis of existing initiatives performed at the
+        Rebooting the Web of Trust 11 conference in The Hague as well as a number of
+        follow on meetings to coordinate activity across various communities. The
+        paper analyzing the existing state of the art is available from the
+        Rebooting The Web of Trust <a href="https://github.com/WebOfTrustInfo/rwot11-the-hague/blob/master/draft-documents/verifiable-issuer-verifier-lists/verifiable-issuer-verifier-lists.pdf">
+        paper archive</a>.
       </p>
 
       <p>
-This specification is intended to align with work happening in other venues
-such as the Trust Over IP Foundation, ESSIF-Lab, The European Digital Identity
-Initiative and other European Trust Frameworks, Canadian Trust Framework
-activities, as well as commercial ventures that are exploring Trust Frameworks.
-Effort will continue to be expended to align this specification with work
-happening in other related venues. The authors and editors of this
-specification invite commentary on this specification through the Github
-issue tracker listed at the top of this document.
+        This specification is intended to align with work happening in other venues
+        such as the Trust Over IP Foundation, ESSIF-Lab, The European Digital Identity
+        Initiative and other European Trust Frameworks, Canadian Trust Framework
+        activities, as well as commercial ventures that are exploring Trust Frameworks.
+        Effort will continue to be expended to align this specification with work
+        happening in other related venues. The authors and editors of this
+        specification invite commentary on this specification through the Github
+        issue tracker listed at the top of this document.
       </p>
 
       <p>
-This is an experimental specification and is undergoing regular revisions. It is
-not fit for production deployment.
+        This is an experimental specification and is undergoing regular revisions. It is
+        not fit for production deployment.
       </p>
 
     </section>
@@ -177,83 +177,83 @@ not fit for production deployment.
       <h2>Introduction</h2>
 
       <p>
-The maintenance of lists of Verifiable Issuers, sometimes referred to as Trusted
-Registries, are a well-known concept from the pre-internet age. Whenever there
-is a diploma signed by a university, there are people and organizations that
-keep track of what universities exist and what methods there are to confirm the
-authenticity of that diploma. A list could be maintained by HR staff for the
-purpose of hiring personnel based on qualifications asserted by particular
-Verifiable Issuers, and the governance of that list would be minimal. Another
-list could be maintained by a government, associated with well-governed
-accreditation procedures, for the purpose of assuring that a diploma represents
-a proper education. Lists of Verifiable Issuers support Verifiers in their
-decision to trust the Issuer of a Verifiable Credential that is presented by a
-Holder.
+        The maintenance of lists of Verifiable Issuers, sometimes referred to as Trusted
+        Registries, are a well-known concept from the pre-internet age. Whenever there
+        is a diploma signed by a university, there are people and organizations that
+        keep track of what universities exist and what methods there are to confirm the
+        authenticity of that diploma. A list could be maintained by HR staff for the
+        purpose of hiring personnel based on qualifications asserted by particular
+        Verifiable Issuers, and the governance of that list would be minimal. Another
+        list could be maintained by a government, associated with well-governed
+        accreditation procedures, for the purpose of assuring that a diploma represents
+        a proper education. Lists of Verifiable Issuers support Verifiers in their
+        decision to trust the Issuer of a Verifiable Credential that is presented by a
+        Holder.
       </p>
 
       <p>
-Digitally sharing lists of Verifiable Issuers and Verifiers is a relatively new
-concept. Examples are the list of parties that are allowed to use the digital
-fingerprint information on the chip of RFID-based digital passports. This is
-cryptographically enforced: “chip-says-no” when an unauthorized party attempts
-to access this information on the chip. Also eIDAS v2 will have a
-Verifiable-Verifiers List that limits the access of Verifiers to credentials in
-a EUDI (EUropean Digital Identity) wallet. Verifiable-Verifiers Lists support
-Holders and holder implementations in their decision to trust a Verifier to
-share a Verifiable Presentation to that Verifier.
+        Digitally sharing lists of Verifiable Issuers and Verifiers is a relatively new
+        concept. Examples are the list of parties that are allowed to use the digital
+        fingerprint information on the chip of RFID-based digital passports. This is
+        cryptographically enforced: “chip-says-no” when an unauthorized party attempts
+        to access this information on the chip. Also eIDAS v2 will have a
+        Verifiable-Verifiers List that limits the access of Verifiers to credentials in
+        a EUDI (EUropean Digital Identity) wallet. Verifiable-Verifiers Lists support
+        Holders and holder implementations in their decision to trust a Verifier to
+        share a Verifiable Presentation to that Verifier.
       <p>
-Lists of Verifiable Issuers and Verifiers help to automate the decision process
-of whether to engage with a counterparty in a transaction and make it more
-auditable by ensuring that software can note that a party was on a list before
-engaging with them. This paper contains the following sections that provide
-background on the problem space as well as a proposed set of solutions given the
-current state of the market:
+        Lists of Verifiable Issuers and Verifiers help to automate the decision process
+        of whether to engage with a counterparty in a transaction and make it more
+        auditable by ensuring that software can note that a party was on a list before
+        engaging with them. This paper contains the following sections that provide
+        background on the problem space as well as a proposed set of solutions given the
+        current state of the market:
       </p>
 
       <ul>
         <li>
-Section 2 presents a set of use cases in the digital age that explain the use of
-lists of Verifiable Issuers and Verifiers.
+          Section 2 presents a set of use cases in the digital age that explain the use of
+          lists of Verifiable Issuers and Verifiers.
         </li>
 
         <li>
-Section 3 analyses prior art such as lists of Verifiable Issuers and Verifiers
-that have already been deployed, or that are being developed, as well as a gap
-analysis of the current solutions and desired outcomes.
+          Section 3 analyses prior art such as lists of Verifiable Issuers and Verifiers
+          that have already been deployed, or that are being developed, as well as a gap
+          analysis of the current solutions and desired outcomes.
         </li>
 
         <li>
-Section 4 highlights the unified requirements derived from the analysis of prior
-art and a conceptual model for sharing lists of Verifiable Issuers and Verifiers
-and the format of the entries in the list.
+          Section 4 highlights the unified requirements derived from the analysis of prior
+          art and a conceptual model for sharing lists of Verifiable Issuers and Verifiers
+          and the format of the entries in the list.
         </li>
 
         <li>
-Section 5 provides a concrete data model and possible serializations, which
-could serve as a starting point for future standardization.
+          Section 5 provides a concrete data model and possible serializations, which
+          could serve as a starting point for future standardization.
         </li>
 
         <li>
-Section 6 discusses possible next steps towards future standardization.
+          Section 6 discusses possible next steps towards future standardization.
         </li>
 
         <li>
-Section 7 concludes the paper and proposes future work.
+          Section 7 concludes the paper and proposes future work.
         </li>
       </ul>
 
       <p>
-The target audience of this paper are people that know the basics of
-Self-Sovereign Identity (SSI) such as the concepts of Issuer, Holder, Verifier,
-and Verifiable Credential. SSI developers may use this document as input and
-inspiration for their code and other products. Deployers of SSI use cases may
-use this document in the specification process of their deployment.
+        The target audience of this paper are people that know the basics of
+        Self-Sovereign Identity (SSI) such as the concepts of Issuer, Holder, Verifier,
+        and Verifiable Credential. SSI developers may use this document as input and
+        inspiration for their code and other products. Deployers of SSI use cases may
+        use this document in the specification process of their deployment.
       </p>
 
       <section id="terminology">
         <h2>Terminology</h2>
         <p>
-The following terms are used to describe concepts in this document.
+          The following terms are used to describe concepts in this document.
         </p>
 <p>
 <strong>Credential</strong>
@@ -816,147 +816,429 @@ their corresponding values
 <h1>Datamodel for Education Use-Case</h1>
 <p>
 The following JSON example illustrates the data model for a Verifiable Issuer/Verifier List, specifically tailored for the education use case. The example includes a list operator and a trust service provider, along with their respective attributes and services.</p>
-<pre
-class="prettyprint">{
+<pre class="prettyprint">{
 
   "ListOperatorInformation": {
-    "TSLVersionIdentifier": "6",
-    "TSLSequenceNumber": "1",
-    "TSLType": "https://www.educertify.com/tsl/types/education-list",
-    "ListOperatorName": "EduCertify Germany",
-    "ListOperatorAddress": {
-      "PostalAddresses": {
-        "PostalAddress": {
-          "StreetAddress": "Bildungszentrum",
-          "Locality": "Berlin",
-          "PostalCode": "10115",
-          "CountryName": "Germany"
-        }
-      }
-    },
-    "LOElectronicAddress": "mailto:info@educertify.com",
-    "LOWebsite": "https://www.educertify.com",
-    "ListName": "EduCertify Education Trust List",
-    "ListInformationURIs": "https://www.educertify.com/education-credentials",
-    "ListTerritory": "DE",
-    "PolicyOrLegalNotice": "This trust list is regulated by the legal framework established by the German Government.",
-    "IssuedAt": "2024-01-01T00:00:00Z",
-    "NextUpdate": "2025-12-31T00:00:00Z",
-    "DistributionPoints": "https://www.educertify.com/tl/education-list.xml"
-  },
-    "TrustServiceProviderList": {
-      "TrustServiceProvider": {
-    "TSPInformation": {
-	    "UUID": "123435",
-      "TSPName": "EduCertify Inc.",
-      "TSPTradeName": "EduCertify",
-      "TSPAddress": {
-        "ElectronicAddress": "info@educertify.com",
-        "PostalAddress": {
-          "City": "Berlin",
-          "Country": "DE",
-          "PostalCode": "10115",
-          "State": "BE",
-          "StreetAddress1": "Humboldtstr",
-          "StreetAddress2": "10"
-        }
-      },
-      "TSPCertificationList": {
-        "TSPCertification": [
-          {
-            "Type": "ISO:27001",
-            "Value": "5432167890"
-          },
-          {
-            "Type": "EDU-ACCREDITATION",
-            "Value": "1234567890"
-          }
-        ]
-      },
-      "TSPIdentifierList": {
-        "TSPIdendifier": [
-          {
-            "Type": "vLEI",
-            "Value": "9876543210"
-          },
-          {
-            "Type": "EDU-ID",
-            "Value": "EDU123456"
-          }
-        ]
-      },
-      "TSPInformationURI": "https://educertify.com/tsp-info",
-	  "TSPLegalBasis": "https://educertify.com/legal-info",
-    },
-    "TSPServices": {
-      "TSPService": [
-        {
-          "ServiceName": "Education Credential Issuer",
-          "ServiceTypeIdentifier": "did:web:educertify.com",
-          "ServiceCurrentStatus": "Active",
-          "StatusStartingTime": "2024-01-01T00:00:00Z",
-		      "StatusEndingTime": " ",
-          "ServiceDefinitionURI": "https://educertify.com/services/credential-issuer/metadata",
-          "ServiceDigitalIdentity": {
-            "DigitalId": [
-              {
-                "X509Certificate": "certificate_data_example_1"
-              },
-              {
-                "DID": "did:web:educertify.com"
+      "TSLVersionIdentifier": "1",
+      "TSLSequenceNumber": "1",
+      "TSLType": "https://w3c.org/ccg/TSLv1",
+      "ListOperatorName": "EduCertify Germany",
+      "ListOperatorAddress": {
+          "PostalAddresses": {
+              "PostalAddress": {
+                  "StreetAddress": "Bildungszentrum",
+                  "Locality": "Berlin",
+                  "PostalCode": "10115",
+                  "CountryName": "Germany"
               }
-            ]
-          },
-          "AdditionalServiceInformation": {
-            "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
-            "ServiceGovernanceURI": "https://educertify.com/governance",
-            "ServiceIssuedCredentialTypes": {
-              "CredentialType": [
-                {
-                  "Type": "Diploma"
-                },
-                {
-                  "Type": "Certificate"
-                }
-              ]
-            },
-            "ServiceContractType": "Standard",
-            "ServicePolicySet": "https://educertify.com/PrivacyPolicy",
-            "ServiceSchemaURI": "https://educertify.com/schema",
-            "ServiceSupplyPoint": "https://issuer.com/OnlinePortal"
           }
-        },
-		{
-          "ServiceName": "Education Credential Verifier",
-          "ServiceTypeIdentifier": "did:web:verifier.educert.com",
-          "ServiceCurrentStatus": "Active",
-          "StatusStartingTime": "2024-01-01T00:00:00Z",
-		  "StatusEndingTime": " ",
-          "ServiceDefinitionURI": "https://educertify.com/services/verifier/presentation-request",
-          "ServiceDigitalIdentity": {
-            "DigitalId": [
-              {
-                "X509Certificate": "certificate_data_example_1"
-              },
-              {
-                "DID": "did:web:verifier.educert.com"
-              }
-            ]
-          },
-          "AdditionalServiceInformation": {
-            "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
-            "ServiceGovernanceURI": "https://educertify.com/governance",
-            "ServiceContractType": "Standard",
-            "ServicePolicySet": "https://educertify.com/verifier/Policy",
-            "ServiceSchemaURI": "https://educertify.com/schema",
-            "ServiceSupplyPoint": "https://verifier.com/OnlinePortaltal"
-          }
-        }
+      },
+      "LOElectronicAddress": "mailto:info@educertify.com",
+      "LOWebSite": "https://www.educertify.com",
+      "ListName": "EduCertify Education Trust List",
+      "ListInformationURIs": [
+          "https://www.educertify.com/education-credentials"
+      ],
+      "ListTerritory": "DE",
+      "PolicyOrLegalNotice": "This trust list is regulated by the legal framework established by the German Government.",
+      "IssuedAt": "2024-12-31T00:00:00Z",
+      "NextUpdate": "2025-12-31T00:00:00Z",
+      "DistributionPoints": [
+          "https://www.educertify.com/tl/education-list.xml"
       ]
-    }
-  }
-  }
- }
+  },
+  "TrustServiceProviderList": [
+      {
+          "TrustServiceProvider": {
+              "TSPInfo": {
+                  "UUID": "123435",
+                  "TSPName": "EduCertify Inc.",
+                  "TSPTradeName": "EduCertify",
+                  "TSPAddress": {
+                      "ElectronicAddress": "info@educertify.com",
+                      "PostalAddress": {
+                          "City": "Berlin",
+                          "Country": "DE",
+                          "PostalCode": "10115",
+                          "State": "BE",
+                          "StreetAddress1": "Humboldtstr",
+                          "StreetAddress2": "10"
+                      }
+                  },
+                  "TSPEmail": "mailto:info@educertify.com",
+                  "TSPCertifications": [
+                      {
+                          "Type": "ISO:27001",
+                          "Value": "5432167890"
+                      },
+                      {
+                          "Type": "EDU-ACCREDITATION",
+                          "Value": "1234567890"
+                      }
+                  ],
+                  "TSPIdentifiers": [
+                      {
+                          "Type": "vLEI",
+                          "Value": "9876543210"
+                      },
+                      {
+                          "Type": "EDU-ID",
+                          "Value": "EDU123456"
+                      }
+                  ],
+                  "TSPURIs": [
+                      "https://educertify.com/tsp-info"
+                  ]
+              },
+              "TSPServices": [
+                  {
+                      "TSPService": {
+                          "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_issuer",
+                          "ServiceName": "Education Credential Issuer",
+                          "ServiceCurrentStatus": "Active",
+                          "StatusStartingTime": "2024-01-01T00:00:00Z",
+                          "ServiceDefinitionURIs": [
+                              "https://educertify.com/services/credential-issuer/metadata",
+                              "https://educertify.com/services/credential-issuer/schema"
+                          ],
+                          "ServiceSupplyPoints": [
+                              "https://issuer.com/OnlinePortal"
+                          ],
+                          "ServiceDigitalIdentity": [
+                              {
+                                  "X509Certificate": "certificate_data_example_1"
+                              },
+                              {
+                                  "DID": "did:web:educertify.com"
+                              }
+                          ],
+                          "AdditionalServiceInformation": {
+                              "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
+                              "ServiceGovernanceURI": "https://educertify.com/governance",
+                              "ServiceIssuedCredentialTypes": [
+                                  "Diploma",
+                                  "Certificate"
+                              ],
+                              "ServiceContractType": "Standard",
+                              "ServicePolicySet": "https://Privacy_Policy"
+                          }
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "TrustServiceProvider": {
+              "TSPInfo": {
+                  "UUID": "56789",
+                  "TSPName": "jobportal Inc.",
+                  "TSPTradeName": "jobportal",
+                  "TSPAddress": {
+                      "PostalAddress": {
+                          "City": "Munich",
+                          "Country": "DE",
+                          "PostalCode": "10145",
+                          "State": "BE",
+                          "StreetAddress1": "Humboldtstr",
+                          "StreetAddress2": "1"
+                      }
+                  },
+                  "TSPEmail": "mailto:info@jobportal.com",
+                  "TSPCertifications": [
+                      {
+                          "Type": "ISO:27001",
+                          "Value": "5432167890"
+                      }
+                  ],
+                  "TSPIdentifiers": [
+                      {
+                          "Type": "vLEI",
+                          "Value": "9876543210"
+                      },
+                      {
+                          "Type": "Company Registration",
+                          "Value": "HRB 86786"
+                      }
+                  ],
+                  "TSPURIs": [
+                      "https://jobportal.com/tsp-info"
+                  ]
+              }
+          },
+          "TSPServices": [
+              {
+                  "TSPService": {
+                      "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                      "ServiceName": "Job Application",
+                      "ServiceCurrentStatus": "Active",
+                      "StatusStartingTime": "2024-01-01T00:00:00Z",
+                      "ServiceDefinitionURIs": [
+                          "https://jobportal.com/services/jobApplicationWeb/meta",
+                          "https://jobportal.com/services/jobApplication/presentation-request"
+                      ],
+                      "ServiceDigitalIdentity": [
+                          {
+                              "X509Certificate": "certificate_data_example_2"
+                          },
+                          {
+                              "DID": "did:web:jobportal.com"
+                          }
+                      ],
+                      "ServiceSupplyPoints": ["https://jobportal.com/jobApplication"],
+                      "AdditionalServiceInformation": {
+                          "ServiceBusinessRulesURI": "https://jobportal.com/business-rules",
+                          "ServiceGovernanceURI": "https://jobportal.com/governance",
+                          "ServiceContractType": "Standard",
+                          "ServicePolicySet": "https://Privacy_Policy"
+                      }
+                  }
+              }
+          ]
+      }
+  ]
+}
+
+</pre>
+<h1>Datamodel for Driving License Use-Case</h1>
+<p>
+The following JSON example illustrates the data model for a Verifiable Issuer/Verifier List, specifically tailored for the driving license use case. The example includes a list operator and a trust service provider, along with their respective attributes and services.</p>
+<pre class="prettyprint">{
+  "ListOperatorInformation": {
+      "TSLVersionIdentifier": "2.1",
+      "TSLSequenceNumber": "1",
+      "TSLType": "https://w3c.org/ccg/TSLv1",
+      "ListOperatorName": "United States Department of Motor Vehicles",
+      "ListOperatorAddress": {
+          "PostalAddresses": {
+              "PostalAddress": {
+                  "StreetAddress": "2415 First Avenue",
+                  "Locality": "Sacramento",
+                  "Region": "CA",
+                  "PostalCode": "95818",
+                  "CountryName": "United States"
+              }
+          }
+      },
+      "LOElectronicAddress": "mailto:trustlist@dmv.ca.gov",
+      "LOWebSite": "https://www.dmv.ca.gov",
+      "ListName": "US Driving License Trust List",
+      "ListInformationURIs": [
+          "https://www.dmv.ca.gov/trust-list"
+      ],
+      "ListTerritory": "US",
+      "PolicyOrLegalNotice": "Governed by REAL ID Act of 2005 and 6 CFR Part 37",
+      "IssuedAt": "2024-12-31T00:00:00Z",
+      "NextUpdate": "2025-12-31T00:00:00Z",
+      "DistributionPoints": [
+          "https://dmv.ca.gov/tl/driving-license-list.xml"
+      ]
+  },
+  "TrustServiceProviderList": [
+      {
+          "TrustServiceProvider": {
+              "TSPInfo": {
+                  "UUID": "US-DMV-001",
+                  "TSPName": "California Department of Motor Vehicles",
+                  "TSPTradeName": "CA DMV",
+                  "TSPAddress": {
+                      "ElectronicAddress": "dl-issuance@dmv.ca.gov",
+                      "PostalAddress": {
+                          "City": "Sacramento",
+                          "Country": "US",
+                          "PostalCode": "95818",
+                          "State": "CA",
+                          "StreetAddress1": "2415 First Avenue"
+                      }
+                  },
+                  "TSPEmail": "mailto:dl-support@dmv.ca.gov",
+                  "TSPCertifications": [
+                      {
+                          "Type": "REAL-ID-COMPLIANT",
+                          "Value": "CA-2024-RID"
+                      },
+                      {
+                          "Type": "NIST-SP-800-63A",
+                          "Value": "IAL2-AUTH"
+                      }
+                  ],
+                  "TSPIdentifiers": [
+                      {
+                          "Type": "DUNS",
+                          "Value": "003884610"
+                      },
+                      {
+                          "Type": "STATE-ID",
+                          "Value": "CA-DMV-001"
+                      }
+                  ],
+                  "TSPURIs": [
+                      "https://dmv.ca.gov/issuer-metadata"
+                  ]
+              },
+              "TSPServices": [
+                  {
+                      "TSPService": {
+                          "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_issuer",
+                          "ServiceName": "REAL ID Issuance",
+                          "ServiceCurrentStatus": "Active",
+                          "StatusStartingTime": "2024-01-01T00:00:00Z",
+                          "ServiceDefinitionURIs": [
+                              "https://dmv.ca.gov/realid-schema",
+                              "https://dmv.ca.gov/dl-data-model"
+                          ],
+                          "ServiceSupplyPoints": [
+                              "https://dmv.ca.gov/online-renewal"
+                          ],
+                          "ServiceDigitalIdentity": [
+                              {
+                                  "X509Certificate": "MIID...CA-DMV-CERT"
+                              },
+                              {
+                                  "DID": "did:web:dmv.ca.gov"
+                              }
+                          ],
+                          "AdditionalServiceInformation": {
+                              "ServiceBusinessRulesURI": "https://dmv.ca.gov/realid-rules",
+                              "ServiceGovernanceURI": "https://dmv.ca.gov/governance",
+                              "ServiceIssuedCredentialTypes": [
+                                  "DomesticDriverLicense",
+                                  "REALID",
+                                  "CommercialDriverLicense"
+                              ],
+                              "ServiceContractType": "StateMandate",
+                              "ServicePolicySet": "https://dmv.ca.gov/privacy"
+                          }
+                      }
+                  }
+              ]
+          }
+      }, 
+      {   
+          "TrustServiceProvider": {
+              "TSPInfo": {
+                  "UUID": "TSA-001",
+                  "TSPName": "Transportation Security Administration",
+                  "TSPTradeName": "TSA",
+                  "TSPAddress": {
+                      "PostalAddress": {
+                          "City": "Springfield",
+                          "Country": "US",
+                          "PostalCode": "20591",
+                          "State": "VA",
+                          "StreetAddress1": "TSA Headquarters"
+                      }
+                  },
+                  "TSPEmail": "mailto:credential-verification@tsa.dhs.gov",
+                  "TSPCertifications": [
+                      {
+                          "Type": "DHS-ACCRED-2024",
+                          "Value": "TSA-VERIFIER-01"
+                      }
+                  ],
+                  "TSPIdentifiers": [
+                      {
+                          "Type": "GOVT-AGENCY-ID",
+                          "Value": "DHS001-TSA"
+                      }
+                  ],
+                  "TSPURIs": [
+                      "https://tsa.gov/credential-verification"
+                  ]
+              },
+              "TSPServices": [
+                  {
+                      "TSPService": {
+                          "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                          "ServiceName": "Identity Verification",
+                          "ServiceCurrentStatus": "Active",
+                          "StatusStartingTime": "2024-01-01T00:00:00Z",
+                          "ServiceDefinitionURIs": [
+                              "https://tsa.com/services/jobApplicationWeb/meta",
+                              "https://tsa.com/services/jobApplication/presentation-request"
+                          ],
+                          "ServiceDigitalIdentity": [
+                              {
+                                  "X509Certificate": "MIID...TSA-CERT"
+                              },
+                              {
+                                  "DID": "did:web:tsa.gov"
+                              }
+                          ],
+                          "ServiceSupplyPoints": ["https://tsa.gov/verify-id"],
+                          "AdditionalServiceInformation": {
+                              "ServiceBusinessRulesURI": "https://tsa.gov/business-rules",
+                              "ServiceGovernanceURI": "https://tsa.gov/governance",
+                              "ServiceContractType": "Standard",
+                              "ServicePolicySet": "https://Privacy_Policy"
+                          }
+                      }
+                  }
+              ]
+          }
+      },
+      {
+          "TrustServiceProvider": {
+              "TSPInfo": {
+                  "UUID": "NRF-001",
+                  "TSPName": "Retail Super Market Federation",
+                  "TSPTradeName": "NRF",
+                  "TSPAddress": {
+                      "PostalAddress": {
+                          "City": "Washington",
+                          "Country": "US",
+                          "PostalCode": "20001",
+                          "State": "DC",
+                          "StreetAddress1": "1101 New York Avenue NW"
+                      }
+                  },
+                  "TSPEmail": "mailto:verification@nrf.com",
+                  "TSPCertifications": [
+                      {
+                          "Type": "PCI-DSS",
+                          "Value": "NRF-2024-PCI"
+                      }
+                  ],
+                  "TSPIdentifiers": [
+                      {
+                          "Type": "EIN",
+                          "Value": "52-1276555"
+                      }
+                  ],
+                  "TSPURIs": [
+                      "https://nrf.com/id-verification"
+                  ]
+              },
+              "TSPServices": [
+                  {
+                      "TSPService": {
+                          "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                          "ServiceName": "Retail ID Verification",
+                          "ServiceCurrentStatus": "Active",
+                          "StatusStartingTime": "2024-01-01T00:00:00Z",
+                          "ServiceDefinitionURIs": [
+                              "https://retail.com/services/jobApplicationWeb/meta",
+                              "https://retail.com/services/jobApplication/presentation-request"
+                          ],
+                          "ServiceDigitalIdentity": [
+                              {
+                                  "X509Certificate": "MIID...NRF-CERT"
+                              }
+                          ],
+                          "ServiceSupplyPoints": ["https://nrf.com/verify"],
+                          "AdditionalServiceInformation": {
+                              "ServiceBusinessRulesURI": "https://retail.com/business-rules",
+                              "ServiceGovernanceURI": "https://retail.com/governance",
+                              "ServiceContractType": "Standard",
+                              "ServicePolicySet": "https://Privacy_Policy"
+                          }
+                      }
+                  }   
+              ]
+          }
+      }
+  ]
+}
+
 </pre>
 
 </section>
