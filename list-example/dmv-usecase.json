@@ -1,0 +1,237 @@
+{
+    "ListOperatorInformation": {
+        "TSLVersionIdentifier": "2.1",
+        "TSLSequenceNumber": "1",
+        "TSLType": "https://w3c.org/ccg/TSLv1",
+        "ListOperatorName": "United States Department of Motor Vehicles",
+        "ListOperatorAddress": {
+            "PostalAddresses": {
+                "PostalAddress": {
+                    "StreetAddress": "2415 First Avenue",
+                    "Locality": "Sacramento",
+                    "Region": "CA",
+                    "PostalCode": "95818",
+                    "CountryName": "United States"
+                }
+            }
+        },
+        "LOElectronicAddress": "mailto:trustlist@dmv.ca.gov",
+        "LOWebSite": "https://www.dmv.ca.gov",
+        "ListName": "US Driving License Trust List",
+        "ListInformationURIs": [
+            "https://www.dmv.ca.gov/trust-list"
+        ],
+        "ListTerritory": "US",
+        "PolicyOrLegalNotice": "Governed by REAL ID Act of 2005 and 6 CFR Part 37",
+        "IssuedAt": "2024-12-31T00:00:00Z",
+        "NextUpdate": "2025-12-31T00:00:00Z",
+        "DistributionPoints": [
+            "https://dmv.ca.gov/tl/driving-license-list.xml"
+        ]
+    },
+    "TrustServiceProviderList": [
+        {
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "US-DMV-001",
+                    "TSPName": "California Department of Motor Vehicles",
+                    "TSPTradeName": "CA DMV",
+                    "TSPAddress": {
+                        "ElectronicAddress": "dl-issuance@dmv.ca.gov",
+                        "PostalAddress": {
+                            "City": "Sacramento",
+                            "Country": "US",
+                            "PostalCode": "95818",
+                            "State": "CA",
+                            "StreetAddress1": "2415 First Avenue"
+                        }
+                    },
+                    "TSPEmail": "mailto:dl-support@dmv.ca.gov",
+                    "TSPCertifications": [
+                        {
+                            "Type": "REAL-ID-COMPLIANT",
+                            "Value": "CA-2024-RID"
+                        },
+                        {
+                            "Type": "NIST-SP-800-63A",
+                            "Value": "IAL2-AUTH"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "DUNS",
+                            "Value": "003884610"
+                        },
+                        {
+                            "Type": "STATE-ID",
+                            "Value": "CA-DMV-001"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://dmv.ca.gov/issuer-metadata"
+                    ]
+                },
+                "TSPServices": [
+                    {
+                        "TSPService": {
+                            "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_issuer",
+                            "ServiceName": "REAL ID Issuance",
+                            "ServiceCurrentStatus": "Active",
+                            "StatusStartingTime": "2024-01-01T00:00:00Z",
+                            "ServiceDefinitionURIs": [
+                                "https://dmv.ca.gov/realid-schema",
+                                "https://dmv.ca.gov/dl-data-model"
+                            ],
+                            "ServiceSupplyPoints": [
+                                "https://dmv.ca.gov/online-renewal"
+                            ],
+                            "ServiceDigitalIdentity": [
+                                {
+                                    "X509Certificate": "MIID...CA-DMV-CERT"
+                                },
+                                {
+                                    "DID": "did:web:dmv.ca.gov"
+                                }
+                            ],
+                            "AdditionalServiceInformation": {
+                                "ServiceBusinessRulesURI": "https://dmv.ca.gov/realid-rules",
+                                "ServiceGovernanceURI": "https://dmv.ca.gov/governance",
+                                "ServiceIssuedCredentialTypes": [
+                                    "DomesticDriverLicense",
+                                    "REALID",
+                                    "CommercialDriverLicense"
+                                ],
+                                "ServiceContractType": "StateMandate",
+                                "ServicePolicySet": "https://dmv.ca.gov/privacy"
+                            }
+                        }
+                    }
+                ]
+            }
+        }, 
+        {   
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "TSA-001",
+                    "TSPName": "Transportation Security Administration",
+                    "TSPTradeName": "TSA",
+                    "TSPAddress": {
+                        "PostalAddress": {
+                            "City": "Springfield",
+                            "Country": "US",
+                            "PostalCode": "20591",
+                            "State": "VA",
+                            "StreetAddress1": "TSA Headquarters"
+                        }
+                    },
+                    "TSPEmail": "mailto:credential-verification@tsa.dhs.gov",
+                    "TSPCertifications": [
+                        {
+                            "Type": "DHS-ACCRED-2024",
+                            "Value": "TSA-VERIFIER-01"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "GOVT-AGENCY-ID",
+                            "Value": "DHS001-TSA"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://tsa.gov/credential-verification"
+                    ]
+                },
+                "TSPServices": [
+                    {
+                        "TSPService": {
+                            "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                            "ServiceName": "Identity Verification",
+                            "ServiceCurrentStatus": "Active",
+                            "StatusStartingTime": "2024-01-01T00:00:00Z",
+                            "ServiceDefinitionURIs": [
+                                "https://tsa.com/services/jobApplicationWeb/meta",
+                                "https://tsa.com/services/jobApplication/presentation-request"
+                            ],
+                            "ServiceDigitalIdentity": [
+                                {
+                                    "X509Certificate": "MIID...TSA-CERT"
+                                },
+                                {
+                                    "DID": "did:web:tsa.gov"
+                                }
+                            ],
+                            "ServiceSupplyPoints": ["https://tsa.gov/verify-id"],
+                            "AdditionalServiceInformation": {
+                                "ServiceBusinessRulesURI": "https://tsa.gov/business-rules",
+                                "ServiceGovernanceURI": "https://tsa.gov/governance",
+                                "ServiceContractType": "Standard",
+                                "ServicePolicySet": "https://Privacy_Policy"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "NRF-001",
+                    "TSPName": "Retail Super Market Federation",
+                    "TSPTradeName": "NRF",
+                    "TSPAddress": {
+                        "PostalAddress": {
+                            "City": "Washington",
+                            "Country": "US",
+                            "PostalCode": "20001",
+                            "State": "DC",
+                            "StreetAddress1": "1101 New York Avenue NW"
+                        }
+                    },
+                    "TSPEmail": "mailto:verification@nrf.com",
+                    "TSPCertifications": [
+                        {
+                            "Type": "PCI-DSS",
+                            "Value": "NRF-2024-PCI"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "EIN",
+                            "Value": "52-1276555"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://nrf.com/id-verification"
+                    ]
+                },
+                "TSPServices": [
+                    {
+                        "TSPService": {
+                            "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                            "ServiceName": "Retail ID Verification",
+                            "ServiceCurrentStatus": "Active",
+                            "StatusStartingTime": "2024-01-01T00:00:00Z",
+                            "ServiceDefinitionURIs": [
+                                "https://retail.com/services/jobApplicationWeb/meta",
+                                "https://retail.com/services/jobApplication/presentation-request"
+                            ],
+                            "ServiceDigitalIdentity": [
+                                {
+                                    "X509Certificate": "MIID...NRF-CERT"
+                                }
+                            ],
+                            "ServiceSupplyPoints": ["https://nrf.com/verify"],
+                            "AdditionalServiceInformation": {
+                                "ServiceBusinessRulesURI": "https://retail.com/business-rules",
+                                "ServiceGovernanceURI": "https://retail.com/governance",
+                                "ServiceContractType": "Standard",
+                                "ServicePolicySet": "https://Privacy_Policy"
+                            }
+                        }
+                    }   
+                ]
+            }
+        }
+    ]
+}
+
