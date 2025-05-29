@@ -1,0 +1,181 @@
+{
+
+    "ListOperatorInformation": {
+        "TSLVersionIdentifier": "1",
+        "TSLSequenceNumber": "1",
+        "TSLType": "https://w3c.org/ccg/TSLv1",
+        "ListOperatorName": "EduCertify Germany",
+        "ListOperatorAddress": {
+            "PostalAddresses": {
+                "PostalAddress": {
+                    "StreetAddress": "Bildungszentrum",
+                    "Locality": "Berlin",
+                    "PostalCode": "10115",
+                    "CountryName": "Germany"
+                }
+            }
+        },
+        "LOElectronicAddress": "mailto:info@educertify.com",
+        "LOWebSite": "https://www.educertify.com",
+        "ListName": "EduCertify Education Trust List",
+        "ListInformationURIs": [
+            "https://www.educertify.com/education-credentials"
+        ],
+        "ListTerritory": "DE",
+        "PolicyOrLegalNotice": "This trust list is regulated by the legal framework established by the German Government.",
+        "IssuedAt": "2024-12-31T00:00:00Z",
+        "NextUpdate": "2025-12-31T00:00:00Z",
+        "DistributionPoints": [
+            "https://www.educertify.com/tl/education-list.xml"
+        ]
+    },
+    "TrustServiceProviderList": [
+        {
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "123435",
+                    "TSPName": "EduCertify Inc.",
+                    "TSPTradeName": "EduCertify",
+                    "TSPAddress": {
+                        "ElectronicAddress": "info@educertify.com",
+                        "PostalAddress": {
+                            "City": "Berlin",
+                            "Country": "DE",
+                            "PostalCode": "10115",
+                            "State": "BE",
+                            "StreetAddress1": "Humboldtstr",
+                            "StreetAddress2": "10"
+                        }
+                    },
+                    "TSPEmail": "mailto:info@educertify.com",
+                    "TSPCertifications": [
+                        {
+                            "Type": "ISO:27001",
+                            "Value": "5432167890"
+                        },
+                        {
+                            "Type": "EDU-ACCREDITATION",
+                            "Value": "1234567890"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "vLEI",
+                            "Value": "9876543210"
+                        },
+                        {
+                            "Type": "EDU-ID",
+                            "Value": "EDU123456"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://educertify.com/tsp-info"
+                    ]
+                },
+                "TSPServices": [
+                    {
+                        "TSPService": {
+                            "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_issuer",
+                            "ServiceName": "Education Credential Issuer",
+                            "ServiceCurrentStatus": "Active",
+                            "StatusStartingTime": "2024-01-01T00:00:00Z",
+                            "ServiceDefinitionURIs": [
+                                "https://educertify.com/services/credential-issuer/metadata",
+                                "https://educertify.com/services/credential-issuer/schema"
+                            ],
+                            "ServiceSupplyPoints": [
+                                "https://issuer.com/OnlinePortal"
+                            ],
+                            "ServiceDigitalIdentity": [
+                                {
+                                    "X509Certificate": "certificate_data_example_1"
+                                },
+                                {
+                                    "DID": "did:web:educertify.com"
+                                }
+                            ],
+                            "AdditionalServiceInformation": {
+                                "ServiceBusinessRulesURI": "https://educertify.com/business-rules",
+                                "ServiceGovernanceURI": "https://educertify.com/governance",
+                                "ServiceIssuedCredentialTypes": [
+                                    "Diploma",
+                                    "Certificate"
+                                ],
+                                "ServiceContractType": "Standard",
+                                "ServicePolicySet": "https://Privacy_Policy"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "TrustServiceProvider": {
+                "TSPInfo": {
+                    "UUID": "56789",
+                    "TSPName": "jobportal Inc.",
+                    "TSPTradeName": "jobportal",
+                    "TSPAddress": {
+                        "PostalAddress": {
+                            "City": "Munich",
+                            "Country": "DE",
+                            "PostalCode": "10145",
+                            "State": "BE",
+                            "StreetAddress1": "Humboldtstr",
+                            "StreetAddress2": "1"
+                        }
+                    },
+                    "TSPEmail": "mailto:info@jobportal.com",
+                    "TSPCertifications": [
+                        {
+                            "Type": "ISO:27001",
+                            "Value": "5432167890"
+                        }
+                    ],
+                    "TSPIdentifiers": [
+                        {
+                            "Type": "vLEI",
+                            "Value": "9876543210"
+                        },
+                        {
+                            "Type": "Company Registration",
+                            "Value": "HRB 86786"
+                        }
+                    ],
+                    "TSPURIs": [
+                        "https://jobportal.com/tsp-info"
+                    ]
+                }
+            },
+            "TSPServices": [
+                {
+                    "TSPService": {
+                        "ServiceTypeIdentifier": "https://w3c.org/ccg/st/trusted_verifier",
+                        "ServiceName": "Job Application",
+                        "ServiceCurrentStatus": "Active",
+                        "StatusStartingTime": "2024-01-01T00:00:00Z",
+                        "ServiceDefinitionURIs": [
+                            "https://jobportal.com/services/jobApplicationWeb/meta",
+                            "https://jobportal.com/services/jobApplication/presentation-request"
+                        ],
+                        "ServiceDigitalIdentity": [
+                            {
+                                "X509Certificate": "certificate_data_example_2"
+                            },
+                            {
+                                "DID": "did:web:jobportal.com"
+                            }
+                        ],
+                        "ServiceSupplyPoints": ["https://jobportal.com/jobApplication"],
+                        "AdditionalServiceInformation": {
+                            "ServiceBusinessRulesURI": "https://jobportal.com/business-rules",
+                            "ServiceGovernanceURI": "https://jobportal.com/governance",
+                            "ServiceContractType": "Standard",
+                            "ServicePolicySet": "https://Privacy_Policy"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
