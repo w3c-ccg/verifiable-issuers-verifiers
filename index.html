@@ -217,28 +217,20 @@
         </li>
 
         <li>
-          Section 3 analyses prior art such as lists of Verifiable Issuers and Verifiers
-          that have already been deployed, or that are being developed, as well as a gap
-          analysis of the current solutions and desired outcomes.
+
+Section 3 provides the conceptual model for sharing lists of Verifiable Issuers and Verifiers and the requirements for such lists.
         </li>
 
         <li>
-          Section 4 highlights the unified requirements derived from the analysis of prior
-          art and a conceptual model for sharing lists of Verifiable Issuers and Verifiers
-          and the format of the entries in the list.
+Section 4 describes the data model for lists of verifiable issuers and verifiers, as well as examples in JSON format.
         </li>
 
         <li>
-          Section 5 provides a concrete data model and possible serializations, which
-          could serve as a starting point for future standardization.
+Section 5 provides a non-normative example of a verifiable list secured as a W3C verifiable credential.
         </li>
 
         <li>
-          Section 6 discusses possible next steps towards future standardization.
-        </li>
-
-        <li>
-          Section 7 concludes the paper and proposes future work.
+Section 6 highlights the security considerations for publishing verifiable lists.
         </li>
       </ul>
 
@@ -1297,6 +1289,14 @@ class="prettyprint">{
 </pre>
     </section>
 
+    <section>
+      <h2>Security Considerations</h2>
+
+      <p>
+This recommendation specifies a data model for trusted lists of verifiable issuers and verifiers but it does not say how such lists should be secured. Other recommendations will specify the security mechanisms that may be used. One security mechanism may be to encapsulate the list as a verifiable credential, signed by the list operator, and a non-normative example of this is given in Section 5. Another mechanism may be for the list operator to issue the list as a JWT. In other eco-systems a block chain may be used to publish the list.
+      </p>
+
+    </section>
 
     <section class="appendix informative">
       <h2>Acknowledgements</h2>
