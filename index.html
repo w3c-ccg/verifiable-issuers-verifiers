@@ -365,7 +365,7 @@ a party and might use a public communication channel or a private one.
     An entity that is listed in either a <strong>Verifiable Issuer List</strong> or a <strong>Verifiable Verifier List</strong> or both.
 </p>
 <p>
-Note. This term is taken from ETSI TS 119 612 V2.1.1 
+Note. This term is taken from ETSI TS 119 612 V2.1.1
 </p>
 <p>
 <strong>Verifiable Issuer / Verifiable Verifier</strong>
@@ -453,10 +453,10 @@ entries</strong>.
 <strong>holder</strong>, and <strong>verifier</strong> as well as other
 verifiable-credential-related roles (e.g., revocator).
 <li>May or may not be a legal authority.
-<li>The <strong>party </strong>that manages the list is called the 
+<li>The <strong>party </strong>that manages the list is called the
 <strong>list operator</strong>. The list has to be precisely
-described, as, for example, "Accredited Universities in the UK", because 
-software may act upon that machine-readable description. This is represented 
+described, as, for example, "Accredited Universities in the UK", because
+software may act upon that machine-readable description. This is represented
 in the data model by the property <code>ListName</code>.
 <p>
 Furthermore, each list entry should also be precisely described, as, for example,
@@ -778,7 +778,7 @@ NOTE: It is yet to be decided which attributes should be mandatory and which sho
 
 <h1>Overview of Trust Service Provider</h1>
 <p>
-Each list entry, representing a trust service provider, contains the following 
+Each list entry, representing a trust service provider, contains the following
 information:
 </p>
 
@@ -1134,8 +1134,8 @@ The following JSON example illustrates the data model for a Verifiable Issuer/Ve
                   }
               ]
           }
-      }, 
-      {   
+      },
+      {
           "TrustServiceProvider": {
               "TSPInfo": {
                   "UUID": "TSA-001",
@@ -1254,7 +1254,7 @@ The following JSON example illustrates the data model for a Verifiable Issuer/Ve
                               "ServicePolicySet": "https://Privacy_Policy"
                           }
                       }
-                  }   
+                  }
               ]
           }
       }
@@ -1274,13 +1274,12 @@ Credential as outlined in the example below:
 </p>
 
 
-<pre
-class="prettyprint">
+<pre class="example nohighlight">
 {
-  "@context" : ["https://www.w3.org/ns/credentials/v2", 
-    "https://w3id.org/security/suites/ed25519-2020/v1", 
-    "https://w3id.org/security/suites/jws-2020/v1",
-    "https://www.w3.org/list/verifiablelist/v1"],
+  "@context" : [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://www.w3.org/list/verifiablelist/v1"
+  ],
   "type" : [ "VerifiableCredential", "ExternalVerifiableListCredential" ],
   "id" : "did:web:dev-train.trust-scheme.de#issuer-lists",
   "issuer" : "did:web:dev-train.trust-scheme.de",
@@ -1288,19 +1287,19 @@ class="prettyprint">
   "expirationDate" : "2025-12-15T18:56:59Z",
   "credentialSubject" : {
     "id" : "https://w3c.org/ccg/TSLv1",
-    "verifiablelistURI" : "https://list-authority.education.example.com/lists/education-list.json",
-    "relatedResource": [{
-        "id": "https://list-authority.education.example.com/lists/education-list.json",
-        "digestSRI":
-            "sha384-Ml/HrjlBCNWyAX91hr6LFV2Y3heB5Tcr6IeE4/Tje8YyzYBM8IhqjHWiWpr8+ZbYU"
-        }]
+    "verifiablelistURI" : "https://list-authority.education.example.com/lists/education-list.json"
+  },
+  "relatedResource": {
+    "id": "https://list-authority.education.example.com/lists/education-list.json",
+    "digestSRI":
+      "sha384-Ml/HrjlBCNWyAX91hr6LFV2Y3heB5Tcr6IeE4/Tje8YyzYBM8IhqjHWiWpr8+ZbYU"
   },
   "proof" : {
-    "type" : "JsonWebSignature2020",
+    "type" : "ecdsa-rdfc-2019",
     "created" : "2025-04-25T11:56:05Z",
     "proofPurpose" : "assertionMethod",
     "verificationMethod" : "did:web:dev-train.trust-scheme.de#test",
-    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..2N_bTxjQhHFDuzFtZnR04uDbGxdpAP7Rqp5iQhSVLFqPFT-ficqeX6J75ihsYVvNLdw3R6pBCCgDoNwLAyHvCA"
+    "proofValue" : "z5QLBrp19KiW9wujVFN8PDsxxXeMoy...r5CG9876zNnbLrZrm95"
   }
 }
 </pre>
