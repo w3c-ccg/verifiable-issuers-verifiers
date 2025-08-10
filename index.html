@@ -1266,7 +1266,7 @@ The following JSON example illustrates the data model for a Verifiable Issuer/Ve
 </section>
 
     <section>
-      <h3>Verifiable Credential</h3>
+      <h3>Centralized Lists</h3>
 
 <p>
 The data model described in this section can be expressed as a Verifiable
@@ -1303,6 +1303,92 @@ Credential as outlined in the example below:
   }
 }
 </pre>
+    </section>
+
+    <section>
+      <h3>Decentralized Verifiable Roles</h3>
+
+      <p>
+A <dfn>verifiable role</dfn> is a role that a particular entity operates as
+within an ecosystem, such as an [=issuer=] or a [=verifier=]. Other trusted root
+authorities within an ecosystem can make statements about these entities and
+their roles and the sorts of actions, such as issuance or verification, that
+each entity is allowed to perform.
+      </p>
+
+      <p class="note"
+         title="Trust decisions are always local and can be overridden">
+Ecosystem participants are advised that all trust decisions are local and can
+be overridden. Different [=verifiers=] might use different root authorities and
+have risk profiles that might not require root authorities at all. Additionally,
+some [=verifiers=] might have addition requirements that reject
+[=verifiable credentials=] even if they are issued by a trusted authority.
+Trust decisions are always local and root authorities can be ignored for
+legitimate reasons.
+      </p>
+
+      <section>
+        <h4>Issuer Roles</h4>
+
+        <p>
+An [=issuer=] is a type of [=verifiable role=] that can, optionally, be
+recognized by an authority to issue certain sorts of [=verifiable credentials=].
+A [=verifier=] would typically have a handful of root authorities that it trusts
+to vet [=issuers=] and would configure their verification software with the list
+of root authorities. Each root authority would then issue a set of [=verifiable
+credentials=] to each [=issuer=]. The [=issuer=] can then provide the
+[=verifiable role=] to the [=holders=], who would then present the credentials
+to the [=verifier=]. An example of such a [=verifiable credential=] issued by
+a trusted root authority to an [=issuer=] is shown below.
+        </p>
+
+        <pre class="example nohighlight" title="A grant by an authority to issue education degrees">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://www.w3.org/ns/credentials/examples/v2"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VerifiableRoleCredential"
+  ],
+  "issuer": "did:web:authority.example",
+  "validFrom": "2025-01-01T00:00:00Z",
+  "validUntil": "2030-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:web:issuer.example",
+    "type": "Issuer",
+    "grant": [{
+      "type": "IssuanceGrant",
+      "validFrom": "2021-01-01T00:00:00Z",
+      "validUntil": "2026-01-01T00:00:00Z",
+      "credentialSchema": {
+        "id": "https://authority.example/schemas/degrees/bachelors.json",
+        "type": "JsonSchema",
+        "digestMultibase": "uELqXcnlc5P7xp1u-5uJRDYKvc9FnJ5YLa5iAszyJ518b"
+      }
+    }, {
+      "type": "IssuanceGrant",
+      "validFrom": "2025-01-01T00:00:00Z",
+      "validUntil": "2026-01-01T00:00:00Z"
+      "credentialSchema": {
+        "id": "https://authority.example/schemas/degrees/masters.json",
+        "type": "JsonSchema",
+        "digestMultibase": "uELYKvc9FnJ5YLa5iARD18bszyJ5qXcnlc5P7xp1u-5uJ"
+      }
+    }]
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2025-08-10T20:08:22Z",
+    "verificationMethod": "did:web:authority.example#issuance-key-1",
+    "cryptosuite": "ecdsa-rdfc-2019",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z36XPGByaH3rvtKfwoEQXsnUXUAjwd2Ceiqke1GPfjAPAFYoXKo5ftPdwE7QZ8Mw22SC5LSRQg1d8bhe3252hYJoH"
+  }
+}
+        </pre>
+      </section>
     </section>
 
     <section>
