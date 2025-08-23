@@ -1309,10 +1309,10 @@ Credential as outlined in the example below:
       <h3>Decentralized Verifiable Roles</h3>
 
       <p>
-A <dfn>verifiable role</dfn> is a role that a particular entity operates as
-within an ecosystem, such as an [=issuer=] or a [=verifier=]. Other trusted root
+A <dfn>verifiable role</dfn> is a role, such as an [=issuer=] or a [=verifier=],
+that a particular entity plays in an ecosystem. Other trusted root
 authorities within an ecosystem can make statements about these entities and
-their roles and the sorts of actions, such as issuance or verification, that
+their roles, as well as the sorts of actions, such as issuance or verification, that
 each entity is allowed to perform.
       </p>
 
@@ -1320,10 +1320,10 @@ each entity is allowed to perform.
          title="Trust decisions are always local and can be overridden">
 Ecosystem participants are advised that all trust decisions are local and can
 be overridden. Different [=verifiers=] might use different root authorities and
-have risk profiles that might not require root authorities at all. Additionally,
-some [=verifiers=] might have addition requirements that reject
-[=verifiable credentials=] even if they are issued by a trusted authority.
-Trust decisions are always local and root authorities can be ignored for
+have risk profiles that might not require any root authority at all. Further,
+some [=verifiers=] might have additional requirements that reject
+[=verifiable credentials=] even if they were issued by a trusted authority.
+Root authorities can even be ignored, for
 legitimate reasons.
       </p>
 
@@ -1332,14 +1332,16 @@ legitimate reasons.
 
         <p>
 An [=issuer=] is a type of [=verifiable role=] that can, optionally, be
-recognized by an authority to issue certain sorts of [=verifiable credentials=].
+recognized by an authority as able to issue certain sorts of [=verifiable credentials=].
 A [=verifier=] would typically have a handful of root authorities that it trusts
-to vet [=issuers=] and would configure their verification software with the list
+to vet [=issuers=] and would configure their verification software with that list
 of root authorities. Each root authority would then issue a [=verifiable
 credential=] to each [=issuer=]. The [=issuer=] can then provide the
 [=verifiable role=] to the [=holders=], who would then present the credential
 to the [=verifier=]. An example of such a [=verifiable credential=] issued by
-a trusted root authority to an [=issuer=] is shown below.
+a trusted root authority to an [=issuer=] is shown below. This system is similar
+in many ways to "traditional" X.509 Certificate Authorities, the Certificates
+they issue, and the mesh of authority, authorization, and delegation.
         </p>
 
         <pre class="example nohighlight" title="A grant by an authority to issue education degrees">
