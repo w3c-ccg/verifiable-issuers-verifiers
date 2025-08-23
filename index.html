@@ -1306,45 +1306,43 @@ Credential as outlined in the example below:
     </section>
 
     <section>
-      <h3>Decentralized Verifiable Roles</h3>
+      <h3>Verifiable Accreditation</h3>
 
       <p>
-A <dfn>verifiable role</dfn> is a role, such as an [=issuer=] or a [=verifier=],
-that a particular entity plays in an ecosystem. Other trusted root
-authorities within an ecosystem can make statements about these entities and
-their roles, as well as the sorts of actions, such as issuance or verification, that
-each entity is allowed to perform.
+A <dfn>verifiable accreditation</dfn> is a recognition by an [=issuer=] that a
+specific entity is qualified to perform a particular action in an ecosystem. One
+example would be a national education board that recognizes colleges that are
+qualified to issue certain types of education degrees.
       </p>
 
       <p class="note"
          title="Trust decisions are always local and can be overridden">
-Ecosystem participants are advised that all trust decisions are local and can
-be overridden. Different [=verifiers=] might use different root authorities and
-have risk profiles that might not require any root authority at all. Further,
-some [=verifiers=] might have additional requirements that reject
-[=verifiable credentials=] even if they were issued by a trusted authority.
-Root authorities can even be ignored, for
-legitimate reasons.
+Ecosystem participants are advised that all trust decisions are local and can be
+overridden. Different [=verifiers=] might use different accreditors and
+have risk profiles that might not require any accreditor at all. Further,
+some [=verifiers=] might have additional requirements that reject [=verifiable
+credentials=] even if they were issued by a trusted accreditor. Certain
+accrediting bodies can even be ignored, for legitimate reasons.
       </p>
 
       <section>
-        <h4>Issuer Roles</h4>
+        <h4>Issuing Accreditation</h4>
 
         <p>
-An [=issuer=] is a type of [=verifiable role=] that can, optionally, be
-recognized by an authority as able to issue certain sorts of [=verifiable credentials=].
-A [=verifier=] would typically have a handful of root authorities that it trusts
-to vet [=issuers=] and would configure their verification software with that list
-of root authorities. Each root authority would then issue a [=verifiable
-credential=] to each [=issuer=]. The [=issuer=] can then provide the
-[=verifiable role=] to the [=holders=], who would then present the credential
-to the [=verifier=]. An example of such a [=verifiable credential=] issued by
-a trusted root authority to an [=issuer=] is shown below. This system is similar
-in many ways to "traditional" X.509 Certificate Authorities, the Certificates
-they issue, and the mesh of authority, authorization, and delegation.
+A [=verifiable accreditation=] can be provided to an [=issuer=] to recognize it
+to issue certain types of [=verifiable credentials=]. A [=verifier=] would
+typically have a handful of accreditors that it trusts to vet [=issuers=]
+and would configure their verification software with that list of accreditors.
+Each accreditor would then issue a [=verifiable credential=] to
+each [=issuer=]. The [=issuer=] can then provide the [=verifiable
+accreditation=] to the [=holders=], who would then present the credential to the
+[=verifier=]. An example of such a [=verifiable credential=] issued by a trusted
+accreditor to an [=issuer=] is shown below. This system is similar in many
+ways to "traditional" X.509 Certificate Authorities, the certificates they
+issue, and the hierarchy of authority, authorization, and delegation.
         </p>
 
-        <pre class="example nohighlight" title="A grant by an authority to issue education degrees">
+        <pre class="example nohighlight" title="An accreditation to issue education degrees">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -1352,29 +1350,29 @@ they issue, and the mesh of authority, authorization, and delegation.
   ],
   "type": [
     "VerifiableCredential",
-    "VerifiableRoleCredential"
+    "VerifiableAccreditationCredential"
   ],
-  "issuer": "did:web:authority.example",
+  "issuer": "did:web:accreditor.example",
   "validFrom": "2025-01-01T00:00:00Z",
   "validUntil": "2030-01-01T00:00:00Z",
   "credentialSubject": {
     "id": "did:web:issuer.example",
     "type": "Issuer",
-    "grant": [{
-      "type": "IssuanceGrant",
+    "accreditation": [{
+      "type": "Issuance",
       "validFrom": "2021-01-01T00:00:00Z",
       "validUntil": "2026-01-01T00:00:00Z",
       "credentialSchema": {
-        "id": "https://authority.example/schemas/degrees/bachelors.json",
+        "id": "https://accreditor.example/schemas/degrees/bachelors.json",
         "type": "JsonSchema",
         "digestMultibase": "uELqXcnlc5P7xp1u-5uJRDYKvc9FnJ5YLa5iAszyJ518b"
       }
     }, {
-      "type": "IssuanceGrant",
+      "type": "Issuance",
       "validFrom": "2025-01-01T00:00:00Z",
       "validUntil": "2026-01-01T00:00:00Z"
       "credentialSchema": {
-        "id": "https://authority.example/schemas/degrees/masters.json",
+        "id": "https://accreditor.example/schemas/degrees/masters.json",
         "type": "JsonSchema",
         "digestMultibase": "uELYKvc9FnJ5YLa5iARD18bszyJ5qXcnlc5P7xp1u-5uJ"
       }
@@ -1383,7 +1381,7 @@ they issue, and the mesh of authority, authorization, and delegation.
   "proof": {
     "type": "DataIntegrityProof",
     "created": "2025-08-10T20:08:22Z",
-    "verificationMethod": "did:web:authority.example#issuance-key-1",
+    "verificationMethod": "did:web:accreditor.example#issuance-key-1",
     "cryptosuite": "ecdsa-rdfc-2019",
     "proofPurpose": "assertionMethod",
     "proofValue": "z36XPGByaH3rvtKfwoEQXsnUXUAjwd2Ceiqke1GPfjAPAFYoXKo5ftPdwE7QZ8Mw22SC5LSRQg1d8bhe3252hYJoH"
