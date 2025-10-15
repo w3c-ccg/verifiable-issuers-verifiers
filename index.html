@@ -139,7 +139,7 @@
       <p>
 This work focuses on how a party or its agent can decide whether or not to
 engage with a counterparty in a transaction. The purpose of this work is to
-enable a party to share a list of Verifiable Issuers, Verifiers and Wallet 
+enable a party to share a list of Verifiable Issuers, Verifiers, and Wallet 
 Providers in a way that is useful to a particular transaction.
       </p>
     </section>
@@ -192,7 +192,7 @@ Holder.
       </p>
 
       <p>
-Digitally sharing lists of Verifiable Issuers, Verifiers and Wallet Providers
+Digital sharing of lists of Verifiable Issuers, Verifiers, and Wallet Providers
 is a relatively new
 concept. Examples are the list of parties that are allowed to use the digital
 fingerprint information on the chip of RFID-based digital passports. This is
@@ -205,7 +205,7 @@ share a Verifiable Presentation to that Verifier. A Verifiable Wallet Provider's
 list may be used by Issuers when deciding whether or not to issue a credential to 
 a holder's wallet.
       <p>
-Lists of Verifiable Issuers, Verifiers and Wallet Provider help to automate the 
+Lists of Verifiable Issuers, Verifiers, and Wallet Providers help to automate the 
 decision process
 of whether to engage with a counterparty in a transaction and make it more
 auditable by ensuring that software can note that a party was on a list before
@@ -217,7 +217,7 @@ current state of the market:
       <ul>
         <li>
 Section 2 presents a set of use cases in the digital age that explain the use of
-lists of Verifiable Issuers, Verifiers and Wallet Providers.
+lists of Verifiable Issuers, Verifiers, and Wallet Providers.
         </li>
 
        <li>
@@ -233,7 +233,7 @@ could serve as a starting point for future standardization.
 
         <li>
 Section 5 provides a non-normative example of a verifiable list published as
-a verifiable credential
+a verifiable credential.
         </li>
  
         <li>
@@ -490,14 +490,13 @@ This section outlines use cases that highlight the need for the technology
 described in this paper by discussing the use cases in three categories:
 </p>
 <ul>
-<li>Verifiable Issuers
-<li>Verifiable Verifiers
-<li>Verifiable Wallet Providers
-</li>
+  <li>Verifiable Issuers</li>
+  <li>Verifiable Verifiers</li>
+  <li>Verifiable Wallet Providers</li>
 </ul>
 <p>
 A final use case section then checks for commonalities and differences between
-the three categories
+the three categories.
 </p>
 <p>
 There are a number of other locations that have published use cases that are
@@ -519,8 +518,8 @@ Trust Management Infrastructure (TRAIN) Business Case</a>
 decided to buy equipment from Acme Inc. The law says that medical equipment
 should be certified by a 3rd party certification body. Twin Mountains Hospital
 requests a certification from Acme Inc. Acme Inc. delivers the certificate to
-them. The hospital then checks if Acme Inc. is in the Verifiable Issuer List of
-licensed 3rd party certification bodies to see if the Issuer of Acme Inc.'s
+them. The hospital then checks whether Acme Inc. is in the Verifiable Issuer List of
+licensed 3rd party certification bodies to see whether the Issuer of Acme Inc.'s
 certification is an approved certification body.
 <ul>
 <li>Note: The solution might need to convey a single item in a List vs. the
@@ -618,36 +617,36 @@ citizens against overzealous law enforcement.
 </p>
 <h3>Verifiable Wallet Provider Use Cases</h3>
 <ul>
-<li> David requests a driving license from his national driving license authority.
+<li> David requests a driving license from his national driving license authority (DLA).
 The DLA interrogates David's wallet, and finds out that the software was not
 written by a trusted software supplier, so it refuses to issue the driving license
 to this wallet. David then installs a certified EUDI wallet on his device, and
 repeats the request to the DLA. This time the DLA is able to obtain the certificate
-issued to the wallet and it duly issues the driving license to David's EUDI wallet.
+issued to the wallet, and it duly issues the driving license to David's EUDI wallet.
 </li>
 </ul>
 
 <h3>Commonalities and Differences</h3>
 <p>
 Conceptually and technically, the three types of lists (Verifiable Issuer,
-Verifiable Verifier and Verifiable Wallet Provider) are fairly similar. 
+Verifiable Verifier, and Verifiable Wallet Provider) are fairly similar. 
 Each type is a governed list of parties
 with a role in SSI exchanges. Each type needs to provide some form of sharing
 (publication/access), so that the list is available to its users. This specification
 presumes that the types of lists themselves, as well as their sharing
-methods, can be technically identical. The only distinction is that a list could
+methods, can be technically identical. The only distinction is that a list might
 contain only Verifiable Issuers, only Verifiable Verifiers, only Verifiable
-Wallet Providers, or a combination of any of them. Consequently the data model
+Wallet Providers, or some combination of these. Consequently, the data model
 should accommodate this.
 </p>
 <p>
 Major differences arise in the applications surrounding the lists. Verifiable
 Issuer lists target Verifier and Wallet implementations, whereas Verifiable Verifier 
-lists target Holder/Wallet implementations and Verifiable Wallet Provider lists
-target Issuers. Also there may be major
-differences in the governance between the three types of lists, or whether/how the
-consulting of lists is implemented and enforced. All of these differences are
-out of the scope of this paper.
+lists target Holder/Wallet implementations, and Verifiable Wallet Provider lists
+target Issuers. There might also be major
+differences in the governance of each type of list, and/or whether and/or how the
+consulting of these lists is implemented and enforced. All of these differences are
+outside the scope of this specification.
 </p>
 
     </section>
