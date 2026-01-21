@@ -108,30 +108,83 @@
       }
     </script>
     <style>
-      pre .highlight {
-        font-weight: bold;
-        color: green;
-      }
-      pre .comment {
-        font-weight: bold;
-        color: Gray;
-      }
-      .color-text {
-        font-weight: bold;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      }
-      ol.algorithm {
-        counter-reset: numsection;
-        list-style-type: none;
-      }
-      ol.algorithm li {
-        margin: 0.5em 0;
-      }
-      ol.algorithm li:before {
-        font-weight: bold;
-        counter-increment: numsection;
-        content: counters(numsection, ".") ") ";
-      }
+    <style>
+code {
+  color: rgb(199, 73, 0);
+  font-weight: bold;
+}
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+pre .highlight {
+  font-weight: bold;
+  color: Green;
+}
+pre .subject {
+  font-weight: bold;
+  color: RoyalBlue;
+}
+pre .property {
+  font-weight: bold;
+  color: DarkGoldenrod;
+}
+pre .comment {
+  font-weight: bold;
+  color: SteelBlue;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.color-text {
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+ol.algorithm {
+  counter-reset: numsection;
+  list-style-type: none;
+}
+ol.algorithm li {
+  margin: 0.5em 0;
+}
+ol.algorithm li:before {
+  font-weight: bold;
+  counter-increment: numsection;
+  content: counters(numsection, ".") ") ";
+}
+.supported {
+  background-color: #93c47d;
+}
+.missing {
+  background-color: #e06666;
+}
+table.simple {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 400px;
+    border: 1px solid #dddddd;
+}
+table.simple thead tr {
+    background-color: #005a9c;
+    color: #ffffff;
+    text-align: left;
+}
+table.simple th,
+table.simple td {
+    padding: 12px 15px;
+    vertical-align: top;
+    text-align: left;
+}
+table.simple tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+table.simple tbody tr:nth-of-type(even) {
+    background-color: #00000008;
+}
+table.simple tbody tr:last-of-type {
+    border-bottom: 2px solid #005a9c;
+}
     </style>
   </head>
   <body>
@@ -750,6 +803,91 @@ that represent entities or organizations that provide services such as
 credential issuance or validation. The data model also includes the
 details of the list operator description.
 </p>
+
+
+    <section>
+        <h3>VerifiableRecognitionCredential</h3>
+
+        <p>
+When a verifiable recognition credential is published, it MUST be a conforming
+[=verifiable credential=], as defined in [[VC-DATA-MODEL-2.0]], that expresses
+the data model in this section. The following section describes the format of
+the [=verifiable credential=] that encapsulates the recognized entities.
+        </p>
+
+        <p>
+The recognized entities are expressed inside a [=verifiable credential=] in
+order to enable a [=holder=] to provide it directly to a [=verifier=]. This
+mechanism, sometimes called "certificate stapling", increases privacy for the
+[=holder=] by ensuring that the [=verifier=] does not need to contact the
+[=issuer=] to retrieve the recognition credential. Still, a [=verifier=] might
+choose to ignore the [=holder=]-provided recognition credential, even when its
+authenticity is verifiable, if it desires a more recent version of a recognition
+credential, for instance.
+        </p>
+
+        <table class="simple">
+          <thead>
+            <tr>
+              <th style="white-space: nowrap">Property</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td>
+The [=verifiable credential=] that contains set of recognized entities MAY
+express an `id` property to make it easier to retrieve for other systems.
+              </td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>
+The [=verifiable credential=] that contains the set of recognized entities MUST
+express a `type` property that includes the
+`VerifiableRecognitionCredential` value.
+              </td>
+            </tr>
+            <tr>
+              <td>issuer</td>
+              <td>
+The [=issuer=] of the [=verifiable credential=] as
+defined in the Verifiable Credentials Data Model specification in
+<a href="https://www.w3.org/TR/vc-data-model-2.0/#issuer">
+Section 4.76: Issuer</a>. This object MAY also include other properties listed
+in Section [[[#general-properties]]].
+              </td>
+            </tr>
+            <tr>
+              <td>validFrom</td>
+              <td>
+The earliest point in time at which the credential is valid. This property is
+defined in the Verifiable Credentials Data Model specification in
+<a href="https://www.w3.org/TR/vc-data-model-2.0/#validity-period">
+Section 4.6: Validity Period</a>.
+              </td>
+            </tr>
+            <tr>
+              <td>validUntil</td>
+              <td>
+The latest point in time at which the credential is valid. This property is
+defined in the Verifiable Credentials Data Model specification in
+<a href="https://www.w3.org/TR/vc-data-model-2.0/#validity-period">
+Section 4.6: Validity Period</a>.
+              </td>
+            </tr>
+            <tr>
+              <td>credentialSubject</td>
+              <td>
+A set of one or more `RecognizedEntity` objects.
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
 
 <h1>Overview of List Operator</h1>
 <p>The List Operator provides a framework for managing a trusted list, which includes essential information about the entity responsible for the list's maintenance and its associated attributes.</p>
