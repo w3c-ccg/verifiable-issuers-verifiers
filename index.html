@@ -1123,7 +1123,8 @@ publish information about a set of known universities in a particular nation.
     "legalName": "Example Polytechnic University",
     "image": "https://university.example/logo.png",
     "url": "https://www.university.example/",
-    "description": "A university providing a great education in Utopia Valley."
+    "description": "A university providing a great education in Utopia Valley.",
+    "recognizedBy": "did:web:learning-commission.example"
   }, {
     "id": "did:web:college.example",
     "type": "RecognizedEntity",
@@ -1131,7 +1132,8 @@ publish information about a set of known universities in a particular nation.
     "legalName": "Community College of Examples and ",
     "image": "https://college.example/graphics/ecc.png",
     "url": "https://college.example/",
-    "description": "The backbone of learning in the Utopia community."
+    "description": "The backbone of learning in the Utopia community.",
+    "recognizedBy": "did:web:learning-commission.example"
   },
   "proof": {
     "type": "DataIntegrityProof",
@@ -1143,6 +1145,84 @@ publish information about a set of known universities in a particular nation.
   }
 }
     </pre>
+
+      <p>
+The next example is used to publish information about a set of known issuers
+for a particular type of [=verifiable credential=].
+      </p>
+
+      <pre class="example" title="A set of known issuers for a particular type of credential">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://www.w3.org/ns/credentials/examples/v2"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VerifiableRecognitionCredential"
+  ],
+  "issuer": "did:web:learning-commission.example",
+  "validFrom": "2025-01-01T00:00:00Z",
+  "validUntil": "2030-01-01T00:00:00Z",
+  "credentialSubject": [{
+    "id": "did:web:university.example",
+    "type": "RecognizedEntity",
+    "name": "Example Tech",
+    "legalName": "Example Polytechnic University",
+    "image": "https://university.example/logo.png",
+    "url": "https://www.university.example/",
+    "description": "A university providing a great education in Utopia Valley.",
+    "recognizedBy": "did:web:learning-commission.example",
+    "recognizedTo": {
+      "type": "RecognizedAction",
+      "action": "issue",
+      "outputValidation": {
+        "id": "https://learning-commission.example/credentials/bachelors.json",
+        "type": "JsonSchema",
+        "digestMultibase": "uEiBZl963sknNAHgPyslVv6VztZpfWQoRvW1htfx-UwirFo",
+      }
+    }
+  }, {
+    "id": "did:web:college.example",
+    "type": "RecognizedEntity",
+    "name": "Exemplar Community College",
+    "legalName": "Community College of Examples and ",
+    "image": "https://college.example/graphics/ecc.png",
+    "url": "https://college.example/",
+    "description": "The backbone of learning in the Utopia community.",
+    "recognizedBy": "did:web:learning-commission.example"
+    "recognizedTo": {
+      "type": "RecognizedAction",
+      "action": "issue",
+      "outputValidation": {
+        "id": "https://learning-commission.example/credentials/associates.json",
+        "type": "JsonSchema",
+        "digestMultibase": "uEiWQoRvpfWW1htfsknNAHgPyslVv6VztZpfwirFoBZl963",
+      }
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2026-04-10T20:08:22Z",
+    "verificationMethod": "did:web:accreditor.example#issuance-key-1",
+    "cryptosuite": "ecdsa-rdfc-2019",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z36XPGByaH3rvtKfwoEQXsnUXUAjwd2Ceiqke1GPfjAPAFYoXKo5ftPdwE7QZ8Mw22SC5LSRQg1d8bhe3252hYJoH"
+  }
+}
+      </pre>
+
+      <p>
+The final example below is used to publish information about a set of
+known verifiers and the entities that operate the lists that identify each
+verifier.
+      </p>
+
+      <pre class="example" title="A set of known verifiers and the entities that operate the lists that identify them">
+{
+
+}
+      </pre>
 
     </section>
 
