@@ -804,6 +804,68 @@ credential issuance or validation. The data model also includes the
 details of the list operator description.
 </p>
 
+    <section>
+        <h3>General Properties</h3>
+
+        <p>
+The properties in this section can be added to objects found in a
+`VerifiableRecognitionCredential` as defined in Section
+[[[#verifiablerecognitioncredential]]].
+        </p>
+
+
+        <table class="simple">
+          <thead>
+            <tr>
+              <th style="white-space: nowrap">Property</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>legalName</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>image</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>url</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>sameAs</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>digestMultibase</td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+    </section>
 
     <section>
         <h3>VerifiableRecognitionCredential</h3>
@@ -880,11 +942,13 @@ Section 4.6: Validity Period</a>.
             <tr>
               <td>credentialSubject</td>
               <td>
-A set of one or more `RecognizedEntity` objects.
+A set of one or more `RecognizedEntity` objects as defined in
+Section [[[#recognizedentity]]].
               </td>
             </tr>
         </tbody>
       </table>
+
     </section>
 
     <section>
