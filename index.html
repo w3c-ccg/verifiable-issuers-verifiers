@@ -868,6 +868,99 @@ The properties in this section can be added to objects found in a
     </section>
 
     <section>
+        <h3>RecognizedEntity</h3>
+
+        <p>
+A <dfn>recognized entity</dfn> is any entity that is recognized by an [=issuer=]
+of a `VerifiableRecognitionCredential` to perform a specific action.
+        </p>
+
+
+        <table class="simple">
+          <thead>
+            <tr>
+              <th style="white-space: nowrap">Property</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>recognizedBy</td>
+              <td>
+A description of the entity that performed the task of recognizing.
+              </td>
+            </tr>
+            <tr>
+              <td>recognizedTo</td>
+              <td>
+A specific action that the [=recognized entity=] is expected to perform as
+defined in Section [[[#recognizedaction]]].
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+    </section>
+
+    <section>
+        <h3>RecognizedAction</h3>
+
+        <p>
+A <dfn>recognized action</dfn> is an action that a [=recognized entity=] is
+expected to perform.
+        </p>
+
+        <table class="simple">
+          <thead>
+            <tr>
+              <th style="white-space: nowrap">Property</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>type</td>
+              <td>
+The `type` property MUST be `RecognizedAction`.
+              </td>
+            </tr>
+            <tr>
+              <td>action</td>
+              <td>
+A [=string=] that specifies the name of the action to be performed such as
+`issue` or `verify`.
+              </td>
+            </tr>
+            <tr>
+              <td>outputValidation</td>
+              <td>
+The value of the `outputValidation` [=property=] MUST be one or more data
+schemas that provide [=verifiers=] with enough information to determine whether
+the provided data conforms to the provided schema(s). Each validator MUST
+specify its `type` (for example, `JsonSchema`) and an `id` [=property=] that
+MUST be a [=URL=] identifying the schema file. The specific type definition
+determines the precise contents of each data schema. If multiple schemas are
+present, validity is determined according to the processing rules outlined by
+each associated `type` property.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+    </section>
+
+
+    <section>
         <h3>VerifiableRecognitionCredential</h3>
 
         <p>
@@ -948,6 +1041,7 @@ Section [[[#recognizedentity]]].
             </tr>
         </tbody>
       </table>
+
 
     </section>
 
