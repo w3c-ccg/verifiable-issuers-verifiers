@@ -1097,6 +1097,53 @@ Section [[[#recognizedentity]]].
         </tbody>
       </table>
 
+      <p>
+The following examples demonstrate how verifiable recognition credentials can be
+used for a variety of different use cases. The first example below is used to
+publish information about a set of known universities in a particular nation.
+      </p>
+
+      <pre class="example" title="A set of known universities in a particular nation">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://www.w3.org/ns/credentials/examples/v2"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VerifiableRecognitionCredential"
+  ],
+  "issuer": "did:web:learning-commission.example",
+  "validFrom": "2025-01-01T00:00:00Z",
+  "validUntil": "2030-01-01T00:00:00Z",
+  "credentialSubject": [{
+    "id": "did:web:university.example",
+    "type": "RecognizedEntity",
+    "name": "Example Tech",
+    "legalName": "Example Polytechnic University",
+    "image": "https://university.example/logo.png",
+    "url": "https://www.university.example/",
+    "description": "A university providing a great education in Utopia Valley."
+  }, {
+    "id": "did:web:college.example",
+    "type": "RecognizedEntity",
+    "name": "Exemplar Community College",
+    "legalName": "Community College of Examples and ",
+    "image": "https://college.example/graphics/ecc.png",
+    "url": "https://college.example/",
+    "description": "The backbone of learning in the Utopia community."
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2026-04-10T20:08:22Z",
+    "verificationMethod": "did:web:accreditor.example#issuance-key-1",
+    "cryptosuite": "ecdsa-rdfc-2019",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z36XPGByaH3rvtKfwoEQXsnUXUAjwd2Ceiqke1GPfjAPAFYoXKo5ftPdwE7QZ8Mw22SC5LSRQg1d8bhe3252hYJoH"
+  }
+}
+    </pre>
+
     </section>
 
     <section>
