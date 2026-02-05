@@ -1171,7 +1171,10 @@ publish information about a set of known universities in a particular nation.
     "VerifiableCredential",
     "VerifiableRecognitionCredential"
   ],
-  "issuer": "did:web:learning-commission.example",
+  "issuer": {
+    "id": "did:web:learning-commission.example",
+    "type": "RecognizedIssuer"
+  },
   "validFrom": "2025-01-01T00:00:00Z",
   "validUntil": "2030-01-01T00:00:00Z",
   "credentialSubject": [{
@@ -1192,7 +1195,7 @@ publish information about a set of known universities in a particular nation.
     "url": "https://college.example/",
     "description": "The backbone of learning in the Utopia community.",
     "recognizedBy": "did:web:learning-commission.example"
-  },
+  }],
   "proof": {
     "type": "DataIntegrityProof",
     "created": "2026-04-10T20:08:22Z",
@@ -1219,7 +1222,10 @@ for a particular type of [=verifiable credential=].
     "VerifiableCredential",
     "VerifiableRecognitionCredential"
   ],
-  "issuer": "did:web:learning-commission.example",
+  "issuer": {
+    "id": "did:web:learning-commission.example",
+    "type": "RecognizedIssuer"
+  },
   "validFrom": "2025-01-01T00:00:00Z",
   "validUntil": "2030-01-01T00:00:00Z",
   "credentialSubject": [{
@@ -1234,6 +1240,7 @@ for a particular type of [=verifiable credential=].
     "recognizedTo": {
       "type": "RecognizedAction",
       "action": "issue",
+      "recognizedBy": "did:web:learning-commission.example",
       "outputValidation": {
         "id": "https://learning-commission.example/credentials/bachelors.json",
         "type": "JsonSchema",
@@ -1252,13 +1259,14 @@ for a particular type of [=verifiable credential=].
     "recognizedTo": {
       "type": "RecognizedAction",
       "action": "issue",
+      "recognizedBy": "did:web:learning-commission.example",
       "outputValidation": {
         "id": "https://learning-commission.example/credentials/associates.json",
         "type": "JsonSchema",
         "digestMultibase": "uEiWQoRvpfWW1htfsknNAHgPyslVv6VztZpfwirFoBZl963",
       }
     }
-  },
+  }],
   "proof": {
     "type": "DataIntegrityProof",
     "created": "2026-04-10T20:08:22Z",
