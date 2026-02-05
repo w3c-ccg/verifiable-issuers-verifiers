@@ -1084,14 +1084,14 @@ entities.
         </p>
 
         <p>
-The recognized entities are expressed inside a [=verifiable credential=] in
-order to enable a [=holder=] to provide it directly to a [=verifier=]. This
+The recognized entities are expressed inside a [=verifiable credential=],
+enabling a [=holder=] to provide it directly to a [=verifier=]. This
 mechanism, sometimes called "certificate stapling", increases privacy for the
 [=holder=] by ensuring that the [=verifier=] does not need to contact the
 [=issuer=] to retrieve the recognition credential. Still, a [=verifier=] might
 choose to ignore the [=holder=]-provided recognition credential, even when its
-authenticity is verifiable, if it desires a more recent version of a recognition
-credential, for instance.
+authenticity is verifiable, if, for instance, it desires a more recent version
+of a recognition credential.
         </p>
 
         <table class="simple">
@@ -1105,16 +1105,16 @@ credential, for instance.
             <tr>
               <td>id</td>
               <td>
-The [=verifiable credential=] that contains set of recognized entities MAY
-express an `id` property to make it easier to retrieve for other systems.
+A [=verifiable credential=] that contains a set of recognized entities MAY
+express an `id` property to make its retrieval easier for other systems.
               </td>
             </tr>
             <tr>
               <td>type</td>
               <td>
-The [=verifiable credential=] that contains the set of recognized entities MUST
-express a `type` property that includes the
-`VerifiableRecognitionCredential` value.
+A [=verifiable credential=] that contains a set of recognized entities MUST
+express a `type` property that includes the `VerifiableRecognitionCredential`
+value.
               </td>
             </tr>
             <tr>
@@ -1157,7 +1157,7 @@ Section [[[#recognizedentity]]].
 
       <p>
 The following examples demonstrate how verifiable recognition credentials can be
-used for a variety of different use cases. The first example below is used to
+employed in a variety of use cases. The first example below is used to
 publish information about a set of known universities in a particular nation.
       </p>
 
