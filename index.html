@@ -109,7 +109,6 @@
       }
     </script>
     <style>
-    <style>
 code {
   color: rgb(199, 73, 0);
   font-weight: bold;
@@ -834,6 +833,15 @@ of the [[[VC-DATA-MODEL]]] specification.
               </td>
             </tr>
             <tr>
+              <td>type</td>
+              <td>
+The type of the entity. The value for this property is defined in
+<a data-cite="VC-DATA-MODEL#types">Section 4.5: Types</a>
+of the [[[VC-DATA-MODEL]]] specification. The `type` property MUST be
+`RecognizedIssuer` if the entity is an [=issuer=] of [=verifiable credentials=].
+              </td>
+            </tr>
+            <tr>
               <td>name</td>
               <td>
 A human-readable name for the entity. The value for this property is defined in
@@ -902,7 +910,6 @@ A <dfn>recognized entity</dfn> is any entity that is recognized by an [=issuer=]
 of a `VerifiableRecognitionCredential` to perform a specific action.
         </p>
 
-
         <table class="simple">
           <thead>
             <tr>
@@ -914,17 +921,26 @@ of a `VerifiableRecognitionCredential` to perform a specific action.
             <tr>
               <td>id</td>
               <td>
+A URL that identifies the entity in a globally unambiguous way. The value for
+this property is defined in
+<a data-cite="VC-DATA-MODEL#identifiers">Section 4.4: Identifiers</a>
+of the [[[VC-DATA-MODEL]]] specification.
               </td>
             </tr>
             <tr>
               <td>type</td>
               <td>
+The `type` property MUST be `RecognizedEntity`. The value for
+this property is defined in
+<a data-cite="VC-DATA-MODEL#types">Section 4.5: Types</a>
+of the [[[VC-DATA-MODEL]]] specification.
               </td>
             </tr>
             <tr>
               <td>recognizedBy</td>
               <td>
-A description of the entity that performed the task of recognizing.
+A [=URL=], or object containing properties from Section
+[[[#general-properties]]], of the entity that performed the task of recognizing.
               </td>
             </tr>
             <tr>
@@ -936,6 +952,11 @@ defined in Section [[[#recognizedaction]]].
             </tr>
           </tbody>
         </table>
+
+        <p>
+In addition to the properties above, properties from Section
+[[[#general-properties]]] can be included as well.
+        </p>
 
     </section>
 
@@ -966,6 +987,13 @@ The `type` property MUST be `RecognizedAction`.
               <td>
 A [=string=] that specifies the name of the action to be performed such as
 `issue` or `verify`.
+              </td>
+            </tr>
+            <tr>
+              <td>recognizedBy</td>
+              <td>
+A [=URL=], or object containing properties from Section
+[[[#general-properties]]], of the entity that performed the task of recognizing.
               </td>
             </tr>
             <tr>
@@ -1049,9 +1077,10 @@ A <dfn>list operator</dfn> is any entity that publishes a list of
 
         <p>
 When a verifiable recognition credential is published, it MUST be a conforming
-[=verifiable credential=], as defined in [[VC-DATA-MODEL-2.0]], that expresses
-the data model in this section. The following section describes the format of
-the [=verifiable credential=] that encapsulates the recognized entities.
+[=verifiable credential=], as defined in [[[]VC-DATA-MODEL-2.0]]], that
+expresses the data model in this section. The following section describes the
+format of the [=verifiable credential=] that encapsulates the recognized
+entities.
         </p>
 
         <p>
