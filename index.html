@@ -1012,7 +1012,47 @@ property.
     </section>
 
     <section>
-        <h3>ListOperator</h3>
+        <h3>EU ETSI Trust Services</h3>
+
+        <pre>
+Class/property hierarchy:
+
+RecognizedEntity
+  name
+  address
+  url
+  trustServiceList
+    id
+      https://ec.europa.eu/tools/lotl/eu-lotl.xml
+    type
+      ??SchemeInformation???
+      http://uri.etsi.org/TrstSvc/TrustedList/TSLType/EUlistofthelists
+    versionIdentifier
+    sequenceNumber
+    name
+    operator (repeats RecognizedEntity)
+      name
+      address
+      informationURI
+    statusDeterminationApproach
+      http://uri.etsi.org/TrstSvc/TrustedList/StatusDetn/EUlistofthelists
+    communityRules
+    policyOrLegalNotice
+    historicalInformationPeriod
+      65535
+    pointersToOtherTSL
+      otherTslPointer
+        digitalId
+          data:application/pkcs7-mime;base64,MIIFMzCCAxugA...
+      location
+    listIssuedDateTime
+      2026-02-04T10:16:38Z
+    nextUpdate
+      dateTime
+        2026-07-29T11:16:38Z
+    distributionPoints
+      https://ec.europa.eu/tools/lotl/eu-lotl.xml
+        </pre>
 
         <p>
 A <dfn>list operator</dfn> is any entity that publishes a list of
