@@ -937,13 +937,6 @@ of the [[[VC-DATA-MODEL]]] specification.
               </td>
             </tr>
             <tr>
-              <td>recognizedBy</td>
-              <td>
-A [=URL=], or object containing properties from Section
-[[[#general-properties]]], of the entity that performed the task of recognizing.
-              </td>
-            </tr>
-            <tr>
               <td>recognizedTo</td>
               <td>
 A specific action that the [=recognized entity=] is expected to perform as
@@ -1077,7 +1070,7 @@ A <dfn>list operator</dfn> is any entity that publishes a list of
 
         <p>
 When a verifiable recognition credential is published, it MUST be a conforming
-[=verifiable credential=], as defined in [[[]VC-DATA-MODEL-2.0]]], that
+[=verifiable credential=], as defined in [[[VC-DATA-MODEL-2.0]]], that
 expresses the data model in this section. The following section describes the
 format of the [=verifiable credential=] that encapsulates the recognized
 entities.
@@ -1185,7 +1178,6 @@ publish information about a set of known universities in a particular nation.
     "image": "https://university.example/logo.png",
     "url": "https://www.university.example/",
     "description": "A university providing a great education in Utopia Valley.",
-    "recognizedBy": "did:web:learning-commission.example"
   }, {
     "id": "did:web:college.example",
     "type": "RecognizedEntity",
@@ -1194,7 +1186,6 @@ publish information about a set of known universities in a particular nation.
     "image": "https://college.example/graphics/ecc.png",
     "url": "https://college.example/",
     "description": "The backbone of learning in the Utopia community.",
-    "recognizedBy": "did:web:learning-commission.example"
   }],
   "proof": {
     "type": "DataIntegrityProof",
@@ -1236,7 +1227,6 @@ for a particular type of [=verifiable credential=].
     "image": "https://university.example/logo.png",
     "url": "https://www.university.example/",
     "description": "A university providing a great education in Utopia Valley.",
-    "recognizedBy": "did:web:learning-commission.example",
     "recognizedTo": {
       "type": "RecognizedAction",
       "action": "issue",
@@ -1255,7 +1245,6 @@ for a particular type of [=verifiable credential=].
     "image": "https://college.example/graphics/ecc.png",
     "url": "https://college.example/",
     "description": "The backbone of learning in the Utopia community.",
-    "recognizedBy": "did:web:learning-commission.example"
     "recognizedTo": {
       "type": "RecognizedAction",
       "action": "issue",
