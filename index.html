@@ -876,7 +876,7 @@ entity. The value MUST be a [=URL=].
               <td>
 One or more URLs that refer to the same entity in other contexts or systems,
 enabling cross-reference and verification across different platforms.
-The value MUST be a [=URL=].
+Each value MUST be a [=URL=].
               </td>
             </tr>
             <tr>
@@ -892,7 +892,7 @@ of the [[[VC-DATA-MODEL]]] specification.
               <td>digestMultibase</td>
               <td>
 One or more cryptographic digests used to verify the integrity of resources
-associated with the entity. The value for this property is defined in
+associated with the entity. The values for this property are defined in
 <a data-cite="VC-DATA-MODEL#integrity-of-related-resources">Section 5.3: Integrity of Related Resources</a>
 of the [[[VC-DATA-MODEL]]] specification.
               </td>
@@ -940,15 +940,17 @@ of the [[[VC-DATA-MODEL]]] specification.
               <td>recognizedTo</td>
               <td>
 A specific action that the [=recognized entity=] is expected to perform as
-defined in Section [[[#recognizedaction]]].
+defined in Section [[[#recognizedaction]]]. This property may occur more
+than once if the [=recognized entity=] is expected to perform more than
+one action.
               </td>
             </tr>
           </tbody>
         </table>
 
         <p>
-In addition to the properties above, properties from Section
-[[[#general-properties]]] can be included as well.
+Properties from Section [[[#general-properties]]] can be included in
+addition to the properties above.
         </p>
 
     </section>
@@ -1069,22 +1071,23 @@ A <dfn>list operator</dfn> is any entity that publishes a list of
         <h3>VerifiableRecognitionCredential</h3>
 
         <p>
-When a verifiable recognition credential is published, it MUST be a conforming
+When a <dfn data-lt="recognition credential">verifiable recognition credential</dfn>
+is published, it MUST be a conforming
 [=verifiable credential=], as defined in [[[VC-DATA-MODEL-2.0]]], that
-expresses the data model in this section. The following section describes the
-format of the [=verifiable credential=] that encapsulates the recognized
+expresses the data model specified in the section that follows. It describes
+the format of a [=verifiable credential=] that encapsulates the recognized
 entities.
         </p>
 
         <p>
-The recognized entities are expressed inside a [=verifiable credential=],
+A recognized entity is expressed inside a [=verifiable credential=],
 enabling a [=holder=] to provide it directly to a [=verifier=]. This
 mechanism, sometimes called "certificate stapling", increases privacy for the
 [=holder=] by ensuring that the [=verifier=] does not need to contact the
 [=issuer=] to retrieve the recognition credential. Still, a [=verifier=] might
-choose to ignore the [=holder=]-provided recognition credential, even when its
-authenticity is verifiable, if, for instance, it desires a more recent version
-of a recognition credential.
+choose to ignore the [=holder=]-provided [=recognition credential=], even when
+its authenticity is verifiable, if, for instance, it desires a more recent
+version of the [=recognition credential=].
         </p>
 
         <table class="simple">
