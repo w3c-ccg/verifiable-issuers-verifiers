@@ -78,9 +78,6 @@
           company: "TNO"
         }],
 
-        // extend the bibliography entries
-        //localBiblio: webpayments.localBiblio,
-
         wg: "Credentials Community Group",
         // URI of the public WG page
         wgURI: "https://www.w3.org/community/credentials/",
@@ -105,7 +102,16 @@
         alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
         */
         xref: ["URL", "I18N-GLOSSARY", "INFRA", "CID", "VC-DATA-MODEL"],
-        localBiblio: {}
+        // extend the bibliography entries
+        localBiblio: {
+          "ETSI-TRUST-LISTS": {
+            title: "Electronic Signatures and Infrastructures (ESI); Trusted Lists",
+            href: ["https://www.etsi.org/deliver/etsi_ts/119600_119699/119612/02.01.01_60/ts_119612v020101p.pdf"],
+            authors: ["ETSI"],
+            status: "ETSI Standard TS 119 612 V2.1.1 (2015-07)",
+            publisher: "ETSI"
+          }
+        }
       }
     </script>
     <style>
@@ -689,9 +695,8 @@ with a role in SSI exchanges. Each type needs to provide some form of sharing
 (publication/access), so that the list is available to its users. This paper
 will presume that the types of lists themselves, as well as their sharing
 methods, can be technically identical. The only distinction is that a list could
-contain only Verifiable Issuers, only Verifiable Verifiers, or a mixture<sup
-id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> of both, so the data model
-should accommodate this.
+contain only Verifiable Issuers, only Verifiable Verifiers, of both,
+so the data model should accommodate this.
 </p>
 <p>
 Major differences arise in the applications surrounding the lists. Verifiable
@@ -1012,11 +1017,54 @@ property.
     </section>
 
     <section>
-        <h3>EU ETSI Trust Services</h3>
+      <h3>EU ETSI Trust Services</h3>
 
-        <p>
+      <p>
+A [=recognized entity=] can publish a EU ETSI Trust Services list using the
+`etsiTrustList` property, which is defined in this section.
+      </p>
 
-        </p>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th style="white-space: nowrap">Property</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>id</td>
+            <td>
+A URL that identifies the entity in a globally unambiguous way. The value for
+this property is defined in
+<a data-cite="VC-DATA-MODEL#identifiers">Section 4.4: Identifiers</a>
+of the [[[VC-DATA-MODEL]]] specification.
+            </td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>
+The `type` property MUST be `RecognizedEntity`. The value for
+this property is defined in
+<a data-cite="VC-DATA-MODEL#types">Section 4.5: Types</a>
+of the [[[VC-DATA-MODEL]]] specification.
+            </td>
+          </tr>
+          <tr>
+            <td>etsiTrustList</td>
+            <td>
+A URL that identifies an ETSI Trust List published by the as defined in
+[[[?ETSI-TRUST-LISTS]]].
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+Properties from Section [[[#general-properties]]] can be included in
+addition to the properties above.
+      </p>
+
     </section>
 
     <section>
@@ -1245,19 +1293,19 @@ publishes an European Union ETSI Trust Services list.
   "validFrom": "2025-01-01T00:00:00Z",
   "validUntil": "2030-01-01T00:00:00Z",
   "credentialSubject": [{
-    "id": "did:web:ut.state.example",
+    "id": "did:web:uto.state.example",
     "type": "RecognizedEntity",
     "name": "State of Utopia",
     "legalName": "State of Utopia",
-    "image": "https://ut.state.example/logo.png",
-    "url": "https://ut.state.example/",
+    "image": "https://uto.state.example/logo.png",
+    "url": "https://uto.state.example/",
     "description": "State of Utopia's Trust List",
     "etsiTrustList": "https://utopia.example/tsl/UT_TSL.xml"
   }],
   "proof": {
     "type": "DataIntegrityProof",
     "created": "2026-04-10T20:08:22Z",
-    "verificationMethod": "did:web:accreditor.example#issuance-key-1",
+    "verificationMethod": "did:web:ec.europa.example#issuance-key-1",
     "cryptosuite": "ecdsa-rdfc-2019",
     "proofPurpose": "assertionMethod",
     "proofValue": "z36XPGByaH3rvtKfwoEQXsnUXUAjwd2Ceiqke1GPfjAPAFYoXKo5ftPdwE7QZ8Mw22SC5LSRQg1d8bhe3252hYJoH"
@@ -1266,45 +1314,6 @@ publishes an European Union ETSI Trust Services list.
       </pre>
 
     </section>
-
-    <section>
-      <h3>Verifiable Credential</h3>
-
-<p>
-The data model described in this section can be expressed as a Verifiable
-Credential as outlined in the example below:
-</p>
-
-
-<pre class="example nohighlight">
-{
-  "@context" : [
-    "https://www.w3.org/ns/credentials/v2",
-    "https://www.w3.org/list/verifiablelist/v1"
-  ],
-  "type" : [ "VerifiableCredential", "ExternalVerifiableListCredential" ],
-  "id" : "did:web:dev-train.trust-scheme.de#issuer-lists",
-  "issuer" : "did:web:dev-train.trust-scheme.de",
-  "issuanceDate" : "2025-04-25T12:56:05+02:00",
-  "expirationDate" : "2025-12-15T18:56:59Z",
-  "credentialSubject" : {
-    "id" : "https://w3c.org/ccg/TSLv1",
-    "verifiablelistURI" : "https://list-authority.education.example.com/lists/education-list.json"
-  },
-  "relatedResource": {
-    "id": "https://list-authority.education.example.com/lists/education-list.json",
-    "digestSRI":
-      "sha384-Ml/HrjlBCNWyAX91hr6LFV2Y3heB5Tcr6IeE4/Tje8YyzYBM8IhqjHWiWpr8+ZbYU"
-  },
-  "proof" : {
-    "type" : "ecdsa-rdfc-2019",
-    "created" : "2025-04-25T11:56:05Z",
-    "proofPurpose" : "assertionMethod",
-    "verificationMethod" : "did:web:dev-train.trust-scheme.de#test",
-    "proofValue" : "z5QLBrp19KiW9wujVFN8PDsxxXeMoy...r5CG9876zNnbLrZrm95"
-  }
-}
-</pre>
     </section>
 
     <section>
