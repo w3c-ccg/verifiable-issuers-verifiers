@@ -950,12 +950,31 @@ than once if the [=recognized entity=] is expected to perform more than
 one action.
               </td>
             </tr>
+            <tr>
+              <td>recognizedList</td>
+              <td>
+An object that contains a reference to a list that recognizes entities and
+actions they are known to perform. The `id` value of the object MUST be a
+[=URL=]. The `type` value of the object MUST conform to the
+<a data-cite="VC-DATA-MODEL#types">type value space </a> defined in
+the [[[VC-DATA-MODEL]]] specification and SHOULD be `EtsiTrustServiceList`,
+`x509CertificateAuthorityList`, or `VerifiableRecognitionCredential`.
+              </td>
+            </tr>
           </tbody>
         </table>
 
         <p>
 Properties from Section [[[#general-properties]]] can be included in
 addition to the properties above.
+        </p>
+
+        <p>
+A `recognizedList` with a `type` property of `EtsiTrustServiceList` MUST conform
+to the [[[ETSI-TRUST-LISTS]]] specification. A list with `type` property of
+`x509CertificateAuthorityList` MUST conform to the [[[RFC5280]]] specification.
+A list with a `type` property of `VerifiableRecognitionCredential` MUST conform
+to this specification.
         </p>
 
     </section>
@@ -1013,58 +1032,6 @@ property.
             </tr>
           </tbody>
         </table>
-
-    </section>
-
-    <section>
-      <h3>EU ETSI Trust Services</h3>
-
-      <p>
-A [=recognized entity=] can publish a EU ETSI Trust Services list using the
-`etsiTrustList` property, which is defined in this section.
-      </p>
-
-      <table class="simple">
-        <thead>
-          <tr>
-            <th style="white-space: nowrap">Property</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>id</td>
-            <td>
-A URL that identifies the entity in a globally unambiguous way. The value for
-this property is defined in
-<a data-cite="VC-DATA-MODEL#identifiers">Section 4.4: Identifiers</a>
-of the [[[VC-DATA-MODEL]]] specification.
-            </td>
-          </tr>
-          <tr>
-            <td>type</td>
-            <td>
-The `type` property MUST be `RecognizedEntity`. The value for
-this property is defined in
-<a data-cite="VC-DATA-MODEL#types">Section 4.5: Types</a>
-of the [[[VC-DATA-MODEL]]] specification.
-            </td>
-          </tr>
-          <tr>
-            <td>etsiTrustList</td>
-            <td>
-A URL that identifies an ETSI Trust List published by the method defined
-[[[?ETSI-TRUST-LISTS]]].
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>
-Properties from Section [[[#general-properties]]] can be included in
-addition to the properties above.
-      </p>
-
     </section>
 
     <section>
@@ -1272,7 +1239,7 @@ for a particular type of [=verifiable credential=].
 
       <p>
 The final example below is used to publish information about an entity that
-publishes an European Union ETSI Trust Services list.
+publishes an European Union ETSI Trust Services list [[ETSI-TRUST-LISTS]].
       </p>
 
       <pre class="example" title="An entity that publishes information conforming to an EU ETSI Trust Service list">
@@ -1299,8 +1266,10 @@ publishes an European Union ETSI Trust Services list.
     "legalName": "State of Utopia",
     "image": "https://uto.state.example/logo.png",
     "url": "https://uto.state.example/",
-    "description": "State of Utopia's Trust List",
-    "etsiTrustList": "https://utopia.example/tsl/UT_TSL.xml"
+    "recognitionList": {
+      "id": "https://utopia.example/tsl/UT_TSL.xml",
+      "type": "EtsiTrustServiceList"
+    }
   }],
   "proof": {
     "type": "DataIntegrityProof",
