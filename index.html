@@ -951,7 +951,7 @@ one action.
               </td>
             </tr>
             <tr>
-              <td>recognizedList</td>
+              <td>recognizedIn</td>
               <td>
 An object that contains a reference to a list that recognizes entities and
 actions they are known to perform. The `id` value of the object MUST be a
@@ -970,7 +970,7 @@ addition to the properties above.
         </p>
 
         <p>
-A `recognizedList` with a `type` property of `EtsiTrustServiceList` MUST conform
+A `recognizedIn` with a `type` property of `EtsiTrustServiceList` MUST conform
 to the [[[ETSI-TRUST-LISTS]]] specification. A list with `type` property of
 `x509CertificateAuthorityList` MUST conform to the [[[RFC5280]]] specification.
 A list with a `type` property of `VerifiableRecognitionCredential` MUST conform
@@ -1266,7 +1266,7 @@ publishes an European Union ETSI Trust Services list [[ETSI-TRUST-LISTS]].
     "legalName": "State of Utopia",
     "image": "https://uto.state.example/logo.png",
     "url": "https://uto.state.example/",
-    "recognizedListList": {
+    "recognizedIn": {
       "id": "https://utopia.example/tsl/UT_TSL.xml",
       "type": "EtsiTrustServiceList"
     }
