@@ -1253,23 +1253,20 @@ publishes an European Union ETSI Trust Services list [[ETSI-TRUST-LISTS]].
     "VerifiableCredential",
     "VerifiableRecognitionCredential"
   ],
-  "issuer": {
-    "id": "did:web:ec.europa.example",
-    "type": "RecognizedIssuer",
-    "name": "Utopian Commission"
-  },
+  "issuer": "did:web:ec.europa.example",
   "validFrom": "2025-01-01T00:00:00Z",
   "validUntil": "2030-01-01T00:00:00Z",
   "credentialSubject": [{
-    "id": "did:web:uto.state.example",
+    "id": "did:web:ec.europa.example",
     "type": "RecognizedEntity",
-    "name": "State of Utopia",
-    "legalName": "State of Utopia",
-    "image": "https://uto.state.example/logo.png",
-    "url": "https://uto.state.example/",
+    "name": "Utopian Commission",
+    "legalName": "The Utopian Commission",
+    "image": "https://ec.europa.example/logo.png",
+    "url": "https://ec.europa.example/",
     "recognizedIn": {
-      "id": "https://utopia.example/tsl/UT_TSL.xml",
-      "type": "EtsiTrustServiceList"
+      "id": "https://ec.europa.example/tsl/lotl.xml",
+      "type": "EtsiTrustServiceList",
+      "name": "Utopian Commission List of the Lists"
     }
   }],
   "proof": {
